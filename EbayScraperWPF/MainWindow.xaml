@@ -1,0 +1,82 @@
+﻿<Window x:Name="Ebay_Scraper_Main" x:Class="EbayScraperWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EbayScraperWPF"
+        mc:Ignorable="d"
+        Title="EbayScraper" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="stckpnlAddItem" Grid.Row="17" Grid.Column="33" Grid.ColumnSpan="5" Grid.RowSpan="2">
+            <Button x:Name="btnAddItem" Content="ADD ITEM" Width="100" Height="40" FontSize="16" FontWeight="Bold" Click="btnAddItem_Click"/>
+        </StackPanel>
+    </Grid>
+
+
+</Window>

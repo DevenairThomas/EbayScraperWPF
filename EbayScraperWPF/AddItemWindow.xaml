@@ -1,0 +1,124 @@
+﻿<Window x:Class="EbayScraperWPF.AddItemWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EbayScraperWPF"
+        mc:Ignorable="d"
+        Title="Add Item" Height="270" Width="440">
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <Label x:Name="lblItemName" Content="Item Name" Width="80" Height="30" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="15" Grid.RowSpan="2">
+            <StackPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="15" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBox x:Name="textItemName" Text="Item Name" Width="300" Height="30" FontWeight="Bold" VerticalAlignment="Center" TextChanged="textItemName_TextChanged" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <Label x:Name="lblItemKeywords" Content="Keywords" Width="80" Height="30" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="15" Grid.RowSpan="2">
+            <StackPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="15" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBox x:Name="textItemKeywords" Text="Keywords" Width="300" Height="30" FontWeight="Bold" VerticalAlignment="Center" TextChanged="textItemKeywords_TextChanged" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <StackPanel Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
+                <Label x:Name="lblMaxPrice" Content="Max Price" Width="80" Height="30" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="6" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBox x:Name="textMaxPrice" Text="Max Price" Width="80" Height="30" FontWeight="Bold" VerticalAlignment="Center" TextChanged="textMaxPrice_TextChanged" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="7" Grid.Column="12" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <StackPanel Grid.Row="7" Grid.Column="11" Grid.ColumnSpan="4">
+                <Label x:Name="lblLowPrice" Content="Low Price" Width="80" Height="30" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="7" Grid.Column="17" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <StackPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="6" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBox x:Name="textLowPrice" Text="Low Price" Width="80" Height="30" FontWeight="Bold" VerticalAlignment="Center" TextChanged="textLowPrice_TextChanged" />
+            </StackPanel>
+        </Border>
+        
+        <Border Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <CheckBox x:Name="checkboxAuction" Content="Auction" Width="80" Height="30" FontWeight="Bold" Checked="checkboxAuction_Checked"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="10" Grid.Column="9" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <CheckBox x:Name="checkboxBuyNow" Content="Buy Now" Width="80" Height="30" FontWeight="Bold" Checked="checkboxBuyNow_Checked"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="10" Grid.Column="17" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <StackPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="6" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <CheckBox x:Name="checkboxOffer" Content="Offer" Width="80" Height="30" FontWeight="Bold" VerticalAlignment="Center" Checked="checkboxOffer_Checked" />
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="13" Grid.Column="12" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+                <Button x:Name="btnCancel" Content="Cancel" Width="80" Height="30" FontWeight="Bold" Click="btnCancel_Click"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="13" Grid.Column="17" Grid.ColumnSpan="4" Grid.RowSpan="2">
+            <StackPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="6" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button x:Name="btnSaveItem" Content="Save" Width="80" Height="30" FontWeight="Bold" VerticalAlignment="Center" Click="btnSaveItem_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
