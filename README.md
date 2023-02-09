@@ -1,7 +1,7 @@
 # EbayScraperWPF
 So the plan is to create an ebay bot that scrapes uses the Ebay API to find items that you want to purchase.
 
-Current project is built in Visual Studios 2022 in Windows Forms.
+Current project is built in Visual Studio 2022 in WPF.
 
 Here are the steps:
 1. Create the form to input a new Item
