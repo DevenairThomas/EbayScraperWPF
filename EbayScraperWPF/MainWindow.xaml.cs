@@ -25,10 +25,40 @@ namespace EbayScraperWPF
             InitializeComponent();
         }
 
+        //AddItemWindow addItemWindow = new AddItemWindow();
+        static List<EbayItem> EbayItemList = new List<EbayItem>();
+        int count = 0;
+
+
+        public void addSavedItem(EbayItem ebayItem)
+        {
+            EbayItemList.Add(ebayItem);
+        }
+        
+
         private void btnAddItem_Click(object sender, RoutedEventArgs e)
         {
-            AddItemWindow win2 = new AddItemWindow();
-            win2.Show();
+            AddItemWindow addItemWindow = new AddItemWindow();
+            EbayItem tempItem = new EbayItem();
+            addItemWindow.Show();
+
+            addItemWindow.SaveItem += (s, args) =>
+            {
+                if (addItemWindow.saveItemToMain) 
+                {
+                    addItemWindow.returnItem();
+                    addItemWindow.Close();
+                }
+            };
+            addItemWindow.onSaveItem();
+        }
+
+        private void btShowItem_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(EbayItem ebayItem in EbayItemList)
+            {
+                System.Diagnostics.Debug.WriteLine(ebayItem.Name);
+            }
         }
     }
 }

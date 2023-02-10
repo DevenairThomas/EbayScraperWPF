@@ -73,8 +73,11 @@
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
-        <StackPanel x:Name="stckpnlAddItem" Grid.Row="17" Grid.Column="33" Grid.ColumnSpan="5" Grid.RowSpan="2">
+        <StackPanel Grid.Row="17" Grid.Column="33" Grid.ColumnSpan="5" Grid.RowSpan="2">
             <Button x:Name="btnAddItem" Content="ADD ITEM" Width="100" Height="40" FontSize="16" FontWeight="Bold" Click="btnAddItem_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Grid.RowSpan="2">
+            <Button x:Name="btnShowItem" Content="SHOW ITEM" Width="100" Height="40" FontSize="16" FontWeight="Bold" Click="btShowItem_Click"/>
         </StackPanel>
     </Grid>
 

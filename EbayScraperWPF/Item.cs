@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace EbayScraperWPF
 {
-    interface IItem
+    public interface IItem
     {
-        string Name { get; set; }
-        string Keywords { get; set; }
+        string? Name { get; set; }
+        string? Keywords { get; set; }
         double MaxPrice { get; set; }
         double LowPrice { get; set; }
         bool Auction { get; set; }
         bool BuyNow { get; set; }
         bool Offer { get; set; }
     }
-    class EbayItem : IItem
+    public class EbayItem : IItem
     {
-        public string Name { get; set; }
-        public string Keywords { get; set; }
+        public string? Name { get; set; }
+        public string? Keywords { get; set; }
         public double MaxPrice { get; set; }
         public double LowPrice { get; set; }
         public bool Auction { get; set; }
