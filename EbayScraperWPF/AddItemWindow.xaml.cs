@@ -39,10 +39,10 @@ namespace EbayScraperWPF
         Mutex mutexItem;
 
         public EbayItem item = new EbayItem();
+        public Keywords keywords = new Keywords();
         private void btnSaveItem_Click(object sender, RoutedEventArgs e)
         {
             PushItemToMain();
-            //Close();
         }
         public void PushItemToMain()
         {
@@ -54,7 +54,7 @@ namespace EbayScraperWPF
                 if (itemName != "" || itemKeywords != "" || itemMaxPrice > 0 || itemLowPrice > 0)
                 {
                     item.Name = itemName;
-                    item.Keywords = itemKeywords;
+                    keywords.putKeyWords(item.KeywordsList, itemKeywords);
                     item.MaxPrice = itemMaxPrice;
                     item.LowPrice = itemLowPrice;
                     item.Offer = itemOffer;

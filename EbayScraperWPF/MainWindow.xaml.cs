@@ -24,18 +24,23 @@ namespace EbayScraperWPF
         {
             InitializeComponent();
         }
-
+        public EventHandler SaveItemToForm;
         //AddItemWindow addItemWindow = new AddItemWindow();
         static List<EbayItem> EbayItemList = new List<EbayItem>();
-        int count = 0;
+        static int count = 0, MAX_NUM_ITEMS = 10;
 
-
+        
+        private void onSaveItemToForm()
+        {
+            SaveItemToForm?.Invoke(this, new EventArgs());
+        }
+        
         public void addSavedItem(EbayItem ebayItem)
         {
             EbayItemList.Add(ebayItem);
+            listboxAllItems.Items.Add(ebayItem.Name);
+            onSaveItemToForm();
         }
-        
-
         private void btnAddItem_Click(object sender, RoutedEventArgs e)
         {
             AddItemWindow addItemWindow = new AddItemWindow();
@@ -48,6 +53,7 @@ namespace EbayScraperWPF
                 {
                     addItemWindow.returnItem();
                     addItemWindow.Close();
+
                 }
             };
             addItemWindow.onSaveItem();
