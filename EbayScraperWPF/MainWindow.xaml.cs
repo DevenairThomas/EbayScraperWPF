@@ -25,16 +25,31 @@ namespace EbayScraperWPF
         {
             InitializeComponent();
         }
+        public EventHandler SelectItem;
+
+        //AddItemWindow addItemWindow = new AddItemWindow();
         public EventHandler SaveItemToForm;
         static List<EbayItem> EbayItemList = new List<EbayItem>();
         static List<string> CommandList = new List<string>();
         static int count = 0, MAX_NUM_ITEMS = 10;
+        EbayItem SelectedItem = new EbayItem();
 
+
+        private void onSelectItem()
         DataCommunicator COMMUNICATION = new DataCommunicator();
 
         private void onSaveItemToForm()
         {
-            SaveItemToForm?.Invoke(this, new EventArgs());
+            SelectItem?.Invoke(this, new EventArgs());
+        }
+        public void ShowSelectedItemContent()
+        {
+            string? itemName = listboxAllItems.SelectedItem.ToString();
+
+            SelectItem += (s,args) =>
+            {
+                getSelectedItem(itemName);
+            };
         }
 
         private void sendMessageRecieveData()
@@ -49,7 +64,6 @@ namespace EbayScraperWPF
         {
             EbayItemList.Add(ebayItem);
             listboxAllItems.Items.Add(ebayItem.Name);
-            onSaveItemToForm();
         }
         private void btnAddItem_Click(object sender, RoutedEventArgs e)
         {
@@ -68,7 +82,21 @@ namespace EbayScraperWPF
             };
             addItemWindow.onSaveItem();
         }
+        private void setSelectedItemToView(EbayItem selectedItem)
+        {
+            //TODO set the selectedItem Content to the Form Fields
+        }
 
+        private void getSelectedItem (string selectedItem)
+        {
+            foreach(EbayItem item in EbayItemList)
+            {
+                if (selectedItem.Equals(item.Name))
+                {
+                    SelectedItem = item;
+                }
+            }
+        }
         private void btShowItem_Click(object sender, RoutedEventArgs e)
         {
             foreach(EbayItem ebayItem in EbayItemList)

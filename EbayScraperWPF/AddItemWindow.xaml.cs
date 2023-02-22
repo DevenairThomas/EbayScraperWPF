@@ -48,6 +48,9 @@ namespace EbayScraperWPF
         {
             itemMaxPrice = Convert.ToDouble(textMaxPrice.Text);
             itemLowPrice = Convert.ToDouble(textLowPrice.Text);
+            setChecked(checkboxOffer, itemOffer);
+            setChecked(checkboxAuction, itemAuction);
+            setChecked(checkboxBuyNow, itemBuyNow);
 
             SaveItem += (s, args) =>
             {
@@ -65,6 +68,15 @@ namespace EbayScraperWPF
                 else { return; }
             };
             onSaveItem();
+        }
+
+        public void setChecked(CheckBox checkbox, bool checkedBoolean)
+        {
+            if(checkbox.IsChecked == true)
+            {
+                checkedBoolean = true;
+            }
+            else { checkedBoolean = false; }
         }
         public void returnItem()
         {

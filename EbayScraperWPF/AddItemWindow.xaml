@@ -79,7 +79,7 @@
         </Border>
         <Border Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="4" Grid.RowSpan="2">
             <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="6" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBox x:Name="textMaxPrice" Text="Max Price" Width="80" Height="30" FontWeight="Bold" VerticalAlignment="Center" TextChanged="textMaxPrice_TextChanged" />
+                <TextBox x:Name="textMaxPrice" Text="" Width="80" Height="30" FontWeight="Bold" VerticalAlignment="Center" TextChanged="textMaxPrice_TextChanged" />
             </StackPanel>
         </Border>
 
@@ -90,7 +90,7 @@
         </Border>
         <Border Grid.Row="7" Grid.Column="17" Grid.ColumnSpan="4" Grid.RowSpan="2">
             <StackPanel Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="6" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBox x:Name="textLowPrice" Text="Low Price" Width="80" Height="30" FontWeight="Bold" VerticalAlignment="Center" TextChanged="textLowPrice_TextChanged" />
+                <TextBox x:Name="textLowPrice" Text="" Width="80" Height="30" FontWeight="Bold" VerticalAlignment="Center" TextChanged="textLowPrice_TextChanged" />
             </StackPanel>
         </Border>
         
