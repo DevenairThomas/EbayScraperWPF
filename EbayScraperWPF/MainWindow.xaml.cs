@@ -35,7 +35,7 @@ namespace EbayScraperWPF
         EbayItem SelectedItem = new EbayItem();
 
 
-        private void onSelectItem()
+        //private void onSelectItem()
         DataCommunicator COMMUNICATION = new DataCommunicator();
 
         private void onSaveItemToForm()
