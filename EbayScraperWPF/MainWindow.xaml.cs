@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,14 +26,23 @@ namespace EbayScraperWPF
             InitializeComponent();
         }
         public EventHandler SaveItemToForm;
-        //AddItemWindow addItemWindow = new AddItemWindow();
         static List<EbayItem> EbayItemList = new List<EbayItem>();
+        static List<string> CommandList = new List<string>();
         static int count = 0, MAX_NUM_ITEMS = 10;
 
-        
+        DataCommunicator COMMUNICATION = new DataCommunicator();
+
         private void onSaveItemToForm()
         {
             SaveItemToForm?.Invoke(this, new EventArgs());
+        }
+
+        private void sendMessageRecieveData()
+        {
+            foreach(string command in CommandList)
+            {
+                COMMUNICATION.PIPE_IN_QUEUE(command);
+            }
         }
         
         public void addSavedItem(EbayItem ebayItem)
