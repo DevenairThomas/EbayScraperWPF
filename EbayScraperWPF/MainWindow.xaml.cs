@@ -24,6 +24,11 @@ namespace EbayScraperWPF
         public MainWindow()
         {
             InitializeComponent();
+
+            ScraperViewModel HomePage = new ScraperViewModel();
+            ScraperViewModel UserPage = new ScraperViewModel();
+            ScraperViewModel FindItemPage = new ScraperViewModel();
+            ScraperViewModel ItemAnalyticsPage = new ScraperViewModel();
         }
         public EventHandler SelectItem;
 
@@ -97,6 +102,28 @@ namespace EbayScraperWPF
                 }
             }
         }
+
+        private void btnUserPage_Click(object sender, RoutedEventArgs e)
+        {
+            var alphaDataTemplate = this.Resources["UserPageTemplate"] as DataTemplate;
+            this.DataContext = new UserPageTemplate();
+        }
+
+        private void btnFindItemsPage_Click(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new FindItemsPageTemplate();
+        }
+
+        private void btnItemAnalyticsPage_Click(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new ItemAnalyticsPageTemplate();
+        }
+
+        private void btnHomePage_Click(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new HomePageTemplate();
+        }
+
         private void btShowItem_Click(object sender, RoutedEventArgs e)
         {
             foreach(EbayItem ebayItem in EbayItemList)

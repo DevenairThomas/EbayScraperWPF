@@ -4,6 +4,28 @@
              xmlns:local="clr-namespace:EbayScraperWPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!--<DataTemplate x:Key="Template1" DataType="{x:Type local:ScraperViewModel}">
+            <Grid Background="Blue">
+                <TextBlock Foreground="White" FontSize="24">Template 1</TextBlock>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="Template2" DataType="{x:Type local:ScraperViewModel}">
+            <Grid Background="Red">
+                <TextBlock Foreground="White" FontSize="24">Template 2</TextBlock>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type local:ScraperViewModel}">
+            <ContentPresenter x:Name="presenter"></ContentPresenter>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding TemplateName}" Value="Template1">
+                    <Setter TargetName="presenter" Property="ContentTemplate" Value="{StaticResource Template1}"></Setter>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding TemplateName}" Value="Template2">
+                    <Setter TargetName="presenter" Property="ContentTemplate" Value="{StaticResource Template2}"></Setter>
+                </DataTrigger>
+            </DataTemplate.Triggers>
+        </DataTemplate> -->
     </Application.Resources>
 </Application>
