@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace EbayScraperWPF.Views
 {
-    internal class FindItemsViewModel
+    public class FindItemsViewModel : ViewModelBase
     {
+        public ViewModelBase CurrentViewModel { get; }
     }
 }

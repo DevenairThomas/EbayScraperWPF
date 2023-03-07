@@ -25,10 +25,10 @@ namespace EbayScraperWPF
         {
             InitializeComponent();
 
-            ScraperViewModel HomePage = new ScraperViewModel();
-            ScraperViewModel UserPage = new ScraperViewModel();
-            ScraperViewModel FindItemPage = new ScraperViewModel();
-            ScraperViewModel ItemAnalyticsPage = new ScraperViewModel();
+            //ScraperViewModel HomePage = new ScraperViewModel();
+            //ScraperViewModel UserPage = new ScraperViewModel();
+            //ScraperViewModel FindItemPage = new ScraperViewModel();
+            //ScraperViewModel ItemAnalyticsPage = new ScraperViewModel();
         }
         public EventHandler SelectItem;
 
@@ -49,11 +49,11 @@ namespace EbayScraperWPF
         }
         public void ShowSelectedItemContent()
         {
-            string? itemName = listboxAllItems.SelectedItem.ToString();
+            //string? itemName = listboxAllItems.SelectedItem.ToString();
 
             SelectItem += (s,args) =>
             {
-                getSelectedItem(itemName);
+                //getSelectedItem(itemName);
             };
         }
 
@@ -68,7 +68,7 @@ namespace EbayScraperWPF
         public void addSavedItem(EbayItem ebayItem)
         {
             EbayItemList.Add(ebayItem);
-            listboxAllItems.Items.Add(ebayItem.Name);
+            //listboxAllItems.Items.Add(ebayItem.Name);
         }
         private void btnAddItem_Click(object sender, RoutedEventArgs e)
         {
@@ -106,22 +106,22 @@ namespace EbayScraperWPF
         private void btnUserPage_Click(object sender, RoutedEventArgs e)
         {
             var alphaDataTemplate = this.Resources["UserPageTemplate"] as DataTemplate;
-            this.DataContext = new UserPageTemplate();
+            //this.DataContext = new UserPageTemplate();
         }
 
         private void btnFindItemsPage_Click(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new FindItemsPageTemplate();
+            //this.DataContext = new FindItemsPageTemplate();
         }
 
         private void btnItemAnalyticsPage_Click(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new ItemAnalyticsPageTemplate();
+            //this.DataContext = new ItemAnalyticsPageTemplate();
         }
 
         private void btnHomePage_Click(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new HomePageTemplate();
+            //this.DataContext = new HomePageTemplate();
         }
 
         private void btShowItem_Click(object sender, RoutedEventArgs e)

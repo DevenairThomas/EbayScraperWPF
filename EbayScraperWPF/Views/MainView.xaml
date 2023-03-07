@@ -1,11 +1,11 @@
-﻿<Window x:Class="EbayScraperWPF.MainView"
+﻿<UserControl 
+        x:Class="EbayScraperWPF.Views.MainView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EbayScraperWPF"
-        mc:Ignorable="d"
-        Title="EbayScraper" Height="450" Width="800">
+        mc:Ignorable="d" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions >
             <RowDefinition Height="20"/>
@@ -143,12 +143,12 @@
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="40" Grid.RowSpan="2">
             <ToolBarPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="40" Grid.RowSpan="2">
                 <ToolBar Band="1" BandIndex="1">
-                    <Button Name ="btnHome" Command = "{Binding HomePageClick}" Width="80" Height="26" Content="Home" Click="btnHomePage_Click" />
+                    <!--<Button Name ="btnHome" Command = "{Binding HomePageClick}" Width="80" Height="26" Content="Home" Click="btnHomePage_Click" />
                     <Button Name ="btnUserPage" Command = "{Binding UserPageClick}" Width="80" Height="26" Content="User Info" Click="btnUserPage_Click" />
                     <Button Name ="btnFindItemsPage" Command = "{Binding FindItemsPageClick}" Width="80" Height="26" Content="Find Items" Click="btnFindItemsPage_Click" />
-                    <Button Name ="btnItemAnalyticsPage" Command = "{Binding ItemAnalyticsPageClick}" Width="80" Height="26" Content="Item Analytics" Click="btnItemAnalyticsPage_Click" />
+                    <Button Name ="btnItemAnalyticsPage" Command = "{Binding ItemAnalyticsPageClick}" Width="80" Height="26" Content="Item Analytics" Click="btnItemAnalyticsPage_Click" />-->
                 </ToolBar>
             </ToolBarPanel>
         </StackPanel>
     </Grid>
-</Window>
+</UserControl>

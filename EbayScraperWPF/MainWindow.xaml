@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="EbayScraper" Height="450" Width="800">
     <Grid>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type viewmodels:MainViewModel}">
+                <views:MainView />
+        </Grid.Resources>
+
+        <custom:Modal Panel.ZIndex="1" IsOpen="{Binding IsOpen}">
+            <ContentControl Content="{Binding CurrentModalViewModel}" />
+        </custom:Modal>
+
         <Grid.RowDefinitions >
             <RowDefinition Height="20"/>
             <RowDefinition Height="20"/>
@@ -74,7 +83,7 @@
             <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
 
-        <Border BorderThickness="1" BorderBrush="Black" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="10" Grid.RowSpan="17">
+        <!-- <Border BorderThickness="1" BorderBrush="Black" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="10" Grid.RowSpan="17">
             <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="10" Grid.RowSpan="17">
                 <ListBox x:Name="listboxAllItems" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="10" Margin="1,1,1,1" Grid.RowSpan="17"/>
             </StackPanel>
@@ -146,9 +155,11 @@
                     <Button Name ="btnHome" Command = "{Binding HomePageClick}" Width="80" Height="26" Content="Home" Click="btnHomePage_Click" />
                     <Button Name ="btnUserPage" Command = "{Binding UserPageClick}" Width="80" Height="26" Content="User Info" Click="btnUserPage_Click" />
                     <Button Name ="btnFindItemsPage" Command = "{Binding FindItemsPageClick}" Width="80" Height="26" Content="Find Items" Click="btnFindItemsPage_Click" />
-                    <Button Name ="btnItemAnalyticsPage" Command = "{Binding ItemAnalyticsPageClick}" Width="80" Height="26" Content="Item Analytics" Click="btnItemAnalyticsPage_Click" />
+                    <Button Name ="btnFindItemsAnalyticsPage" Command = "{Binding FindItemAnalyticsPageClick}" Width="120" Height="26" Content="Item Analytics" Click="btnFindItemsPage_Click" />
+                    <Button Name ="btnFindSoldItemsPage" Command = "{Binding FindSoldItemsPageClick}" Width="120" Height="26" Content="Find Sold Items" Click="btnFindItemsPage_Click" />
+                    <Button Name ="btnSoldItemAnalyticsPage" Command = "{Binding SoldItemsAnalyticsPageClick}" Width="120" Height="26" Content="Sold Item Analytics" Click="btnItemAnalyticsPage_Click" />
                 </ToolBar>
             </ToolBarPanel>
-        </StackPanel>
+        </StackPanel> -->
     </Grid>
 </Window>

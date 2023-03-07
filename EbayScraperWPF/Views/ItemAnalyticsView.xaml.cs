@@ -13,12 +13,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace EbayScraperWPF
+namespace EbayScraperWPF.Views
 {
     /// <summary>
     /// Interaction logic for Window2.xaml
     /// </summary>
-    public partial class ItemAnalyticsView : Window
+    public partial class ItemAnalyticsView : UserControl
     {
         public ItemAnalyticsView()
         {

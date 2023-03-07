@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EbayScraperWPF.Views;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,21 @@ namespace EbayScraperWPF
     /// </summary>
     public partial class App : Application
     {
+        private readonly IServiceProvider _serviceProvider;
+
+        public App()
+        {
+            //IServiceCollection services = new IServiceCollection();
+        }
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            MainWindow = new MainWindow()
+            {
+                DataContext = new MainViewModel()
+
+            };
+            MainWindow.Show();
+            base.OnStartup(e);
+        }
     }
 }

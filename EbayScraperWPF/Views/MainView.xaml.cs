@@ -13,12 +13,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace EbayScraperWPF
+namespace EbayScraperWPF.Views
 {
     /// <summary>
     /// Interaction logic for Window2.xaml
     /// </summary>
-    public partial class MainView : Window
+    public partial class MainView : UserControl
     {
         /// <summary>
         /// Interaction logic for MainWindow.xaml
@@ -26,10 +26,10 @@ namespace EbayScraperWPF
             public MainView()
             {
                 InitializeComponent();
-                ScraperViewModel HomePage = new ScraperViewModel();
-                ScraperViewModel UserPage = new ScraperViewModel();
-                ScraperViewModel FindItemPage = new ScraperViewModel();
-                ScraperViewModel ItemAnalyticsPage = new ScraperViewModel();
+                //ScraperViewModel HomePage = new ScraperViewModel();
+                //ScraperViewModel UserPage = new ScraperViewModel();
+                //ScraperViewModel FindItemPage = new ScraperViewModel();
+                //ScraperViewModel ItemAnalyticsPage = new ScraperViewModel();
             }
             public EventHandler SelectItem;
 
@@ -114,4 +114,3 @@ namespace EbayScraperWPF
             }
         }
     }
-}
