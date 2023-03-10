@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -11,21 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using EbayScraperWPF.ViewModel;
 
-namespace EbayScraperWPF
+namespace EbayScraperWPF.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SoldItemAnalyticsView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SoldItemAnalyticsView : Window
     {
-        public MainWindow()
+        public SoldItemAnalyticsView()
         {
-            var viewModel = new ViewModel("");
-            viewModel.Title = "";
             InitializeComponent();
         }
     }

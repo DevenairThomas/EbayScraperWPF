@@ -7,15 +7,6 @@
         mc:Ignorable="d"
         Title="EbayScraper" Height="450" Width="800">
     <Grid>
-        <Grid.Resources>
-            <DataTemplate DataType="{x:Type viewmodels:MainViewModel}">
-                <views:MainView />
-        </Grid.Resources>
-
-        <custom:Modal Panel.ZIndex="1" IsOpen="{Binding IsOpen}">
-            <ContentControl Content="{Binding CurrentModalViewModel}" />
-        </custom:Modal>
-
         <Grid.RowDefinitions >
             <RowDefinition Height="20"/>
             <RowDefinition Height="20"/>

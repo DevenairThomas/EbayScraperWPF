@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EbayScraperWPF.Services
+namespace EbayScraperWPF.Views
 {
-    public interface INavigationService
+    public class HomeViewModel : ViewModelBase
     {
-        void Navigate();
+        public ViewModelBase CurrentViewModel { get; }
     }
 }

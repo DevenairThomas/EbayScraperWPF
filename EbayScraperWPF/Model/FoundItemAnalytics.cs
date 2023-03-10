@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EbayScraperWPF.Views
+namespace EbayScraperWPF.Model
 {
-    public class MainViewModel : ViewModelBase
+    internal class FoundItemAnalytics
     {
-        public ViewModelBase CurrentViewModel { get; }
     }
 }

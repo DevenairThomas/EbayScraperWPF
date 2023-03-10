@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EbayScraperWPF.Views
+namespace EbayScraperWPF.ViewModel
 {
-    public class UserViewModel : ViewModelBase
+    internal class CheckoutViewModel
     {
-        public ViewModelBase CurrentViewModel { get; }
     }
-
 }
