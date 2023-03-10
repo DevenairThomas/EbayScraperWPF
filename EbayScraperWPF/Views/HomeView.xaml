@@ -8,70 +8,9 @@
         mc:Ignorable="d" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions >
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="20"/>
+            
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
 
         <Border BorderThickness="1" BorderBrush="Black" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="10" Grid.RowSpan="17">

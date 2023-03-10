@@ -7,6 +7,93 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <GroupBox Header="Required" Margin="10,67,400,320">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="240"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" x:Name="lblItemName" Text="Item Name: "/>
+                <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" x:Name="lblItemKeywords" Text="Item Keywords: "/>
+                
+                <TextBox Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" x:Name="txtItemName" Text=""/>
+                <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="txtKeywords" Text=""/>
+            </Grid>
+        </GroupBox>
+        <Button Content="Button" Margin="10,332,400,113"/>
+        <GroupBox Header="Optional" Margin="10,130,400,118">
+            <Grid Height="203">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="240"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <ScrollViewer Grid.Row="0" Grid.RowSpan="9" Grid.Column="2" Height="200" VerticalScrollBarVisibility="Auto"/>
+                <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUserEmail" Text="User Email: "/>
+                <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUserTelephone" Text="User Telephone: "/>
+                <TextBlock Grid.Row="2" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUserAddressLine1" Text="User Address Line 1: "/>
+                <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUserAddressLine2" Text="User Address Line 2: " />
+                <TextBlock Grid.Row="4" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUserountry" Text="User Country: " />
+                <TextBlock Grid.Row="5" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUsertate" Text="User State: " />
+                <TextBlock Grid.Row="6" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUseCity" Text="User City: "/>
+                <TextBlock Grid.Row="7" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUsrCounty" Text="User County: "/>
+                <TextBlock Grid.Row="8" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUsEmail" Text="User Email: "/>
+                <TextBlock Grid.Row="9" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUseTelephone" Text="User Telephone: "/>
+
+                <TextBox Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUserEmail" Text=""/>
+                <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUserTelephone" Text=""/>
+                <TextBox Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUserAddressLine1" Text=""/>
+                <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUserAddressLine2" Text=""/>
+                <TextBox Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUserCountry" Text=""/>
+                <TextBox Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUserState" Text=""/>
+                <TextBox Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUserCity" Text=""/>
+                <TextBox Grid.Row="7" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUsunty" Text=""/>
+                <TextBox Grid.Row="8" Grid.Column="1" TextWrapping="Wrap" x:Name="txterEmail" Text=""/>
+                <TextBox Grid.Row="9" Grid.Column="1" TextWrapping="Wrap" x:Name="txterelephone" Text=""/>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Advanced Options" Margin="11,337,399,10">
+            <Grid Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="240"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <ScrollViewer Grid.Row="0" Grid.RowSpan="4" Grid.Column="2" Height="80" VerticalScrollBarVisibility="Auto"/>
+                <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUswe" Text="User Email: "/>
+                <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUserwehone" Text="User Telephone: "/>
+                <TextBlock Grid.Row="2" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUseweessLine1" Text="User Address Line 1: "/>
+                <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" x:Name="lblwedressLine2" Text="User Address Line 2: " />
+
+                <TextBox Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" x:Name="txtweEmail" Text=""/>
+                <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="txwelephone" Text=""/>
+                <TextBox Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUwe" Text=""/>
+                <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" x:Name="txweressLine2" Text=""/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </UserControl>

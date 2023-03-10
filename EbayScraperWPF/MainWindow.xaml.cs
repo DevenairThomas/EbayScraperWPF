@@ -24,8 +24,6 @@ namespace EbayScraperWPF
     {
         public MainWindow()
         {
-            var viewModel = new ViewModel("");
-            viewModel.Title = "";
             InitializeComponent();
         }
     }

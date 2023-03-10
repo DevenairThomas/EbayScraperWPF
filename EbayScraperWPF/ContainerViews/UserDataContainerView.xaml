@@ -4,9 +4,40 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EbayScraperWPF.ContainerViews"
+             xmlns:UserData ="clr-namespace:EbayScraperWPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <UserControl.Resources>
+        <DataTemplate x:Key ="UserData">
             
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+
+        <TextBlock TextWrapping="Wrap" x:Name="lblUserFirstName" Text="First Name:" Margin="10,54,670,378"/>
+        <TextBlock TextWrapping="Wrap" x:Name="lblUserLastName" Text="Last Name: " Margin="10,77,670,355"/>
+        <TextBlock TextWrapping="Wrap" x:Name="lblUserEmail" Text="User Email: " Margin="10,100,670,332"/>
+        <TextBlock TextWrapping="Wrap" x:Name="lblUserTelephone" Text="User Telephone: " Margin="10,123,670,309"/>
+        <TextBlock TextWrapping="Wrap" x:Name="lblUserAddressLine1" Text="User Address Line 1: " Margin="10,146,670,286"/>
+        <TextBlock TextWrapping="Wrap" x:Name="lblUserAddressLine2" Text="User Address Line 2: " Margin="10,169,670,263"/>
+        <TextBlock TextWrapping="Wrap" x:Name="lblUserCountry" Text="User Country: " Margin="10,192,670,240"/>
+        <TextBlock TextWrapping="Wrap" x:Name="lblUserState" Text="User State: " Margin="10,215,670,217"/>
+        <TextBlock TextWrapping="Wrap" x:Name="lblUserCity" Text="User City: " Margin="10,238,670,194"/>
+        <TextBlock TextWrapping="Wrap" x:Name="lblUserCounty" Text="User County: " Margin="10,261,670,171"/>
+        <TextBlock TextWrapping="Wrap" x:Name="lblUserPostalCode" Text="Postal Code: " Margin="10,284,670,148"/>
+
+        <TextBox TextWrapping="Wrap" x:Name="txtUserFirstName" Text="" Margin="135,54,400,378" RenderTransformOrigin="0.371,1.356" TextChanged="txtUserFirstName_TextChanged"/>
+        <TextBox TextWrapping="Wrap" x:Name="txtUserLastName" Text="" Margin="135,100,400,332" TextChanged="txtUserLastName_TextChanged"/>
+        <TextBox TextWrapping="Wrap" x:Name="txtUserEmail" Text="" Margin="135,77,400,355" TextChanged="txtUserEmail_TextChanged"/>
+        <TextBox TextWrapping="Wrap" x:Name="txtUserTelephone" Text="" Margin="135,238,400,194" TextChanged="txtUserTelephone_TextChanged"/>
+        <TextBox TextWrapping="Wrap" x:Name="txtUserAddressLine1" Text="" Margin="135,215,400,217" TextChanged="txtUserAddressLine1_TextChanged"/>
+        <TextBox TextWrapping="Wrap" x:Name="txtUserAddressLine2" Text="" Margin="135,192,400,240" TextChanged="txtUserAddressLine2_TextChanged"/>
+        <TextBox TextWrapping="Wrap" x:Name="txtUserCountry" Text="" Margin="135,169,400,263" TextChanged="txtUserCountry_TextChanged"/>
+        <TextBox TextWrapping="Wrap" x:Name="txtUserState" Text="" Margin="135,146,400,286" TextChanged="txtUserState_TextChanged"/>
+        <TextBox TextWrapping="Wrap" x:Name="txtUserCity" Text="" Margin="135,123,400,309" TextChanged="txtUserCity_TextChanged"/>
+        <TextBox TextWrapping="Wrap" x:Name="txtUserCounty" Text="" Margin="135,261,400,171" TextChanged="txtUserCounty_TextChanged"/>
+        <TextBox TextWrapping="Wrap" x:Name="txtUserPostalCode" Text="" Margin="135,284,400,148" TextChanged="txtUserPostalCode_TextChanged"/>
+        <Button Content="Save" x:Name="btnSaveUserData" Margin="350,307,400,123" Click="btnSaveUserData_Click"/>
+
     </Grid>
 </UserControl>

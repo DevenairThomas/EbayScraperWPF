@@ -8,47 +8,8 @@
         Height="270" Width="440">
     <Grid>
         <Grid.RowDefinitions >
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="20"/>
         </Grid.ColumnDefinitions>
     </Grid>
 </UserControl>

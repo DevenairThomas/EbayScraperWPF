@@ -24,5 +24,10 @@ namespace EbayScraperWPF.ContainerViews
         {
             InitializeComponent();
         }
+
+        private void txtUserCity_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

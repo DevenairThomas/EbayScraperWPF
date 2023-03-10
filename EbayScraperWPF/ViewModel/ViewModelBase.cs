@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace EbayScraperWPF.Views
+namespace EbayScraperWPF
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
