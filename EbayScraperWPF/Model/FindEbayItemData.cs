@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EbayScraperWPF
 {
-    internal class FindEbayItemData
+    public class FindEbayItemData
     {
         private string itemName;
         private string itemKeywords;

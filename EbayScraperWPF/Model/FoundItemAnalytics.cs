@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EbayScraperWPF.Model
 {
-    internal class FoundItemAnalytics
+    public class FoundItemAnalytics
     {
     }
 }

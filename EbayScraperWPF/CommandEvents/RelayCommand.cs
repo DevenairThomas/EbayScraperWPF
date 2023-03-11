@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Input;
 
-namespace EbayScraperWPF.ViewModel
+namespace EbayScraperWPF.CommandEvents
 {
     public class RelayCommand : ICommand
     {
