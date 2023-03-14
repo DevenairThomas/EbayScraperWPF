@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EbayScraperWPF.ContainerViews
+namespace EbayScraperWPF.ContainerViews.FindItemContainer
 {
     /// <summary>
-    /// Interaction logic for ItemDataContainer.xaml
+    /// Interaction logic for FindItemContainerAdvancedDetailView.xaml
     /// </summary>
-    public partial class ItemDataContainer : UserControl
+    public partial class FindItemContainerAdvancedDetailView : UserControl
     {
-        public ItemDataContainer()
+        public FindItemContainerAdvancedDetailView()
         {
             InitializeComponent();
         }

@@ -7,6 +7,23 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid Background="#FFE5E5E5" Margin="0,69,0,351"/>
+        <ToolBarTray Background="White">
+            <ToolBar Band="0" BandIndex="0">
+                <Button Content="Home" Width="80" Command="{Binding NavigateToHomeViewModel}"/>
+                <Separator/>
+                <Button Content="User" Width="80" Command="{Binding NavigateToUserViewModel}"/>
+                <Separator/>
+                <Button Content="Find Item" Width="101" Command="{Binding NavigateToFindItemViewModel}"/>
+                <Separator/>
+                <Button Content="Find Sold Item" Width="121" Command="{Binding NavigateToFindSoldItemViewModel}"/>
+                <Separator/>
+                <Button Content="Item Analytics" Width="121" Command="{Binding NavigateToItemAnalyticsViewModel}"/>
+                <Separator/>
+                <Button Content="Find Sold Item" Width="121" Command="{Binding NavigateToSoldItemAnalyticsViewModel}"/>
+                <Separator/>
+                <Button Content="Checkout" Width="121" Command="{Binding NavigateToCheckoutViewModel}"/>
+            </ToolBar>
+        </ToolBarTray>
     </Grid>
 </UserControl>

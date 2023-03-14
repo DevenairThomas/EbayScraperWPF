@@ -25,4 +25,8 @@
     </Page>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\ContainerViews\" />
+  </ItemGroup>
+
 </Project>
