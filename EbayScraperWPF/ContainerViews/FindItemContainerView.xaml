@@ -95,5 +95,6 @@
                 <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" x:Name="txweressLine2" Text=""/>
             </Grid>
         </GroupBox>
+        <Button Content="Save" Margin="406,420,334,10"/>
     </Grid>
 </UserControl>
