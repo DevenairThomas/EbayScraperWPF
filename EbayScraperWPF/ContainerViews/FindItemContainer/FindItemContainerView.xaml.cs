@@ -20,12 +20,32 @@ namespace EbayScraperWPF.ContainerViews
     /// </summary>
     public partial class FindItemContainerView : UserControl
     {
+        FindEbayItemData FindItemData;
         public FindItemContainerView()
         {
             InitializeComponent();
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (AdvancedDetails.Visibility == Visibility.Visible)
+            {
+                AdvancedDetails.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                AdvancedDetails.Visibility = Visibility.Visible;
+            }
+        }
 
-        private void txtUserCity_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnSaveItem_Click(object sender, RoutedEventArgs e)
+        {
+            if(AdvancedDetails.AdvancedItemUsed == true)
+            {
+
+            }
+        }
+
+        private void addAdvancedDetailsToItems()
         {
 
         }

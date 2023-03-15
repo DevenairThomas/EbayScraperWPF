@@ -85,7 +85,7 @@ namespace EbayScraperWPF
             mutexItem.WaitOne();
             retVal = item;
             mutexItem.ReleaseMutex();
-            (window as MainWindow)?.addSavedItem(retVal);
+            //(window as MainWindow)?.addSavedItem(retVal);
         }
         public void onSaveItem()
         {

@@ -1,9 +1,10 @@
-﻿<UserControl x:Class="EbayScraperWPF.ContainerViews.FindItemContainerView"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EbayScraperWPF.ContainerViews"
+             xmlns:Views="clr-namespace:EbayScraperWPF.Views" xmlns:ItemDataContainer="clr-namespace:EbayScraperWPF.ContainerViews.ItemDataContainer" x:Class="EbayScraperWPF.ContainerViews.FindItemContainerView"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -24,7 +25,9 @@
                 <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="txtKeywords" Text=""/>
             </Grid>
         </GroupBox>
-        <Button Content="Button" Margin="10,332,400,113"/>
+        <Button Margin="10,332,400,113" Click="Button_Click">
+            <Views:MainView/>
+        </Button>
         <GroupBox Header="Optional" Margin="10,130,400,118">
             <Grid Height="203">
                 <Grid.RowDefinitions>
@@ -46,64 +49,165 @@
                     <ColumnDefinition Width="20"/>
                 </Grid.ColumnDefinitions>
                 <ScrollViewer Grid.Row="0" Grid.RowSpan="9" Grid.Column="2" Height="200" VerticalScrollBarVisibility="Auto"/>
-                <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" x:Name="lblPrice" Text="Price: " Margin="0,0,56,0"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" x:Name="lblMaxPrice" Text="Max Price: " Margin="0,0,176,0"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" x:Name="lblMinPrice" Text="Min Price: " Margin="120,0,66,0"/>
+                <!-- Price Control-->
+                <!-- Labels -->
+                <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" x:Name="lblPrice" Text="Max/Min Price: " Margin="0,0,5,0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" x:Name="lblMaxPrice" Text="Max: " Margin="0,0,211,0"/>
+                <TextBlock Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" x:Name="lblMinPrice" Text="Min: " Margin="120,0,92,0"/>
+                <!--Text Control -->
+                <TextBox Grid.Row="0" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtMinPrice" Text="" Margin="34,0,125,0" Grid.Column="1"/>
+                <TextBox Grid.Row="0" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtMaxPrice" Text="" Margin="153,0,0,0" Grid.Column="1"/>
+                <!-- End of Price Control-->
 
-                <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" x:Name="lblFeedbacScore" Text="Feedback Score: "/>
-                <TextBlock Grid.Column="1" TextWrapping="Wrap" x:Name="lblFeedbackScoreMin" Text="Min Score: " Margin="120,0,65,0" Grid.Row="1"/>
-                <TextBlock Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="lblFeedbackScoreMax" Text="Max Score " Margin="0,0,182,0" />
-
-                <TextBlock Grid.Row="4" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUserountry" Text="User Country: " />
-                <TextBlock Grid.Row="5" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUsertate" Text="User State: " />
-                <TextBlock Grid.Row="6" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUseCity" Text="User City: "/>
-                <TextBlock Grid.Row="7" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUsrCounty" Text="User County: "/>
-                <TextBlock Grid.Row="8" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUsEmail" Text="User Email: "/>
-                <TextBlock Grid.Row="9" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUseTelephone" Text="User Telephone: "/>
-
-                <TextBox Grid.Row="0" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtMinPrice" Text="" Margin="58,0,125,0" Grid.Column="1"/>
-                <TextBox Grid.Row="0" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtMaxPrice" Text="" Margin="175,0,0,0" Grid.Column="1"/>
-
+                <!-- Feedback -->
+                <!-- Labels -->
+                <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" x:Name="lblFeedbackScore" Text="Feedback Score: "/>
+                <TextBlock Grid.Column="1" TextWrapping="Wrap" x:Name="lblFeedbackScoreMin" Text="Min Score: " Margin="120,0,92,0" Grid.Row="1" RenderTransformOrigin="1.012,0.635"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="lblFeedbackScoreMax" Text="Max: " Margin="0,0,211,0" />
+                <!-- Text Control -->
                 <TextBox Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtFeedbackMin" Text="" Margin="58,0,125,0" Grid.Column="1"/>
-                <TextBox Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtFeedbackMax" Text="" Margin="58,0,125,0" Grid.Column="1"/>
+                <TextBox Grid.Row="1" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtFeedbackMax" Text="" Margin="34,0,125,0" Grid.Column="1"/>
+                <!-- End of Feedback -->
+
+                <!-- Condition -->
+                <!-- Condition Control Labels -->
+                <TextBlock Grid.Row="2" Grid.Column="0" TextWrapping="Wrap" x:Name="lblCondition" Text="Item Condition: " />
+                <ComboBox Grid.Row="2" Grid.Column="1" x:Name="cmbBoxCondition" Text="Condition">
+                    <ComboBoxItem Content="New"/>
+                    <ComboBoxItem Content="New Other"/>
+                    <ComboBoxItem Content="New with Defects"/>
+                    <ComboBoxItem Content="Certified - Refurbished"/>
+                    <ComboBoxItem Content="Excellent - Refurbished"/>
+                    <ComboBoxItem Content="Very Good - Refurbished"/>
+                    <ComboBoxItem Content="Good - Refurbished"/>
+                    <ComboBoxItem Content="Seller - Refurbished"/>
+                    <ComboBoxItem Content="Like New"/>
+                    <ComboBoxItem Content="Used"/>
+                    <ComboBoxItem Content="Very Good"/>
+                    <ComboBoxItem Content="Good"/>
+                    <ComboBoxItem Content="Acceptable"/>
+                    <ComboBoxItem Content="For Parts Not Working"/>
+                </ComboBox>
+                <!-- End of Condition -->
+
+                <!-- Offer Only -->
+                <!-- Labels -->
+                <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" x:Name="lblOfferOnly" Text="Offer Only: " Margin="0,0,60,0"/>
+                <!-- Text Control -->
+                <CheckBox Grid.Row="3" Grid.Column="0" x:Name="chkOfferOnly" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="61,0,0,0"/>
+                <!-- End of Offer Only -->
+
+                <!-- Buy Now Only -->
+                <!-- Labels -->
+                <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" x:Name="lblBuyNowOnly" Text="Buy Now Only: " Margin="85,0,197,0" Grid.ColumnSpan="2"/>
+                <!-- Text Control -->
+                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="chkBuyNowOnly" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="43,0,0,0"/>
+                <!-- End of Offer Only -->
+
+                <!-- Auction Only -->
+                <!-- Labels -->
+                <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" x:Name="lblAuctionOnly" Text="Auction Only: " Margin="63,0,103,0"/>
+                <!-- Text Control -->
+                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="chkAuctionOnly" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="138,0,0,0"/>
+                <!-- End of Auction Only -->
+
+                <!-- Lots Only -->
+                <!-- Labels -->
+                <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" x:Name="lblLotsOnly" Text="Lots Only: " Margin="160,0,20,0"/>
+                <!-- Text Control -->
+                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="chkLotsOnly" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="220,0,0,0"/>
+                <!-- End of Lots Only -->
+
+                <!-- Bid Control-->
+                <!-- Labels -->
+                <TextBlock Grid.Row="4" Grid.Column="0" TextWrapping="Wrap" x:Name="lblBids" Text="Max/Min Bids: " Margin="0,0,5,0"/>
+                <TextBlock Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" x:Name="lblMaxBids" Text="Max: " Margin="0,0,211,0"/>
+                <TextBlock Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" x:Name="lblMinBids" Text="Min: " Margin="120,0,92,0"/>
+                <!--Text Control -->
+                <TextBox Grid.Row="4" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtMaxBids" Text="" Margin="34,0,125,0" Grid.Column="1"/>
+                <TextBox Grid.Row="4" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtMinBids" Text="" Margin="153,0,0,0" Grid.Column="1"/>
+                <!-- End of Bid Control-->
+
+                <!-- Quantity Control-->
+                <!-- Labels -->
+                <TextBlock Grid.Row="5" Grid.Column="0" TextWrapping="Wrap" x:Name="lblQuantity" Text="Max/Min Quantity: " Margin="0,0,5,0"/>
+                <TextBlock Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" x:Name="lblMaxQuantity" Text="Max: " Margin="0,0,211,0"/>
+                <TextBlock Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" x:Name="lblMinQuantity" Text="Min: " Margin="120,0,92,0"/>
+                <!--Text Control -->
+                <TextBox Grid.Row="5" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtMaxQuantity" Text="" Margin="34,0,125,0" Grid.Column="1"/>
+                <TextBox Grid.Row="5" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtMinQuantity" Text="" Margin="153,0,0,0" Grid.Column="1"/>
+                <!-- End of Quantity Control-->
+
+                <!-- EndTime Control-->
+                <!-- Labels -->
+                <TextBlock Grid.Row="6" Grid.Column="0" TextWrapping="Wrap" x:Name="lblEndTime" Text="To/From End Time: " Margin="0,0,5,0"/>
+                <TextBlock Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" x:Name="lblEndTimeTo" Text="To: " Margin="0,0,211,0"/>
+                <TextBlock Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" x:Name="lblEndTimeFrom" Text="From: " Margin="120,0,87,0"/>
+                <!--Text Control -->
+                <TextBox Grid.Row="6" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtEndTimeTo" Text="" Margin="34,0,125,0" Grid.Column="1"/>
+                <TextBox Grid.Row="6" TextWrapping="Wrap" TextAlignment="Center" x:Name="txtEndTimeFrom" Text="" Margin="153,0,0,0" Grid.Column="1"/>
+                <!-- End of EndTime Control-->
+
+                <!-- TopRatedSeller Only -->
+                <!-- Labels -->
+                <TextBlock Grid.Row="7" Grid.Column="0" TextWrapping="Wrap" x:Name="lblTopRatedSellerOnly" TextAlignment="Center" FontSize="8"  Text="Top Rated Seller Only: " Margin="0,0,60,0"/>
+                <!-- Text Control -->
+                <CheckBox Grid.Row="7" Grid.Column="0" x:Name="chkTopRatedSellerOnly" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="61,0,0,0"/>
+                <!-- End of TopRatedSeller Only -->
+
+                <!-- GetItFastOnly Only -->
+                <!-- Labels -->
+                <TextBlock Grid.Row="7" Grid.Column="0" TextWrapping="Wrap" x:Name="lblGetItFastOnly" TextAlignment="Center" FontSize="8"  Text="Get It Fast Only: " Margin="85,0,197,0" Grid.ColumnSpan="2"/>
+                <!-- Text Control -->
+                <CheckBox Grid.Row="7" Grid.Column="1" x:Name="chkGetItFastOnly" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="43,0,0,0"/>
+                <!-- End of GetItFastOnly Only -->
+
+                <!-- ReturnsAcceptedOnly Only -->
+                <!-- Labels -->
+                <TextBlock Grid.Row="7" Grid.Column="1" TextWrapping="Wrap" x:Name="lblReturnsAcceptedOnly" TextAlignment="Center" FontSize="8"  Text="Returns Accepted Only: " Margin="63,0,103,0"/>
+                <!-- Text Control -->
+                <CheckBox Grid.Row="7" Grid.Column="1" x:Name="chkReturnsAcceptedOnly" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="138,0,0,0"/>
+                <!-- End of ReturnsAcceptedOnly Only -->
+
+                <!-- FreeShipping Only -->
+                <!-- Labels -->
+                <TextBlock Grid.Row="7" Grid.Column="1" TextWrapping="Wrap" x:Name="lblFreeShippingOnly" TextAlignment="Center" FontSize="8" Text="Free Shipping Only: " Margin="160,0,20,0"/>
+                <!-- Text Control -->
+                <CheckBox Grid.Row="7" Grid.Column="1" x:Name="chkFreeShippingOnly" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="220,0,0,0"/>
+                <!-- End of FreeShipping Only -->
+
+                <!-- Expedited Shipping Type -->
+                <!-- Labels -->
+                <TextBlock Grid.Row="8" Grid.Column="1" TextWrapping="Wrap" x:Name="lblExpeditedShippingType" TextAlignment="Center" FontSize="8" Text="One Day Shipping: " Margin="160,0,20,0"/>
+                <!-- Text Control -->
+                <CheckBox Grid.Row="8" Grid.Column="1" x:Name="chkExpeditedShippingType" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="220,0,0,0"/>
+                <!-- End of Expedited Shipping Type -->
 
 
-                <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUserTelephone" Text="" Margin="180,0,0,0" HorizontalAlignment="Left" Width="60"/>
-                <TextBox Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUserAddressLine1" Text=""/>
-                <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUserAddressLine2" Text=""/>
-                <TextBox Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUserCountry" Text=""/>
-                <TextBox Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUserState" Text=""/>
-                <TextBox Grid.Row="6" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUserCity" Text=""/>
-                <TextBox Grid.Row="7" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUsunty" Text=""/>
-                <TextBox Grid.Row="8" Grid.Column="1" TextWrapping="Wrap" x:Name="txterEmail" Text=""/>
-                <TextBox Grid.Row="9" Grid.Column="1" TextWrapping="Wrap" x:Name="txterelephone" Text=""/>
+                <!-- Currency Control-->
+                <!-- Labels -->
+                <TextBlock Grid.Row="8" TextWrapping="Wrap" x:Name="lblCurrency" Text="Currency: " Margin="13,1,168,19" Grid.Column="1" Grid.RowSpan="2"/>
+                <!--Text Control -->
+                <ComboBox Grid.Row="8" x:Name="cmbBoxCurrency" Text="" Margin="72,1,87,19" Grid.Column="1" Grid.RowSpan="2">
+                    <ComboBoxItem Content="USD - US Dollar"/>
+                    <ComboBoxItem Content="CAD - Canadian Dollar"/>
+                    <ComboBoxItem Content="GBP - British Pound"/>
+                    <ComboBoxItem Content="AUD - Australian Dollar"/>
+                    <ComboBoxItem Content="EUR - Euro"/>
+                    <ComboBoxItem Content="CHF - Swiss Franc"/>
+                    <ComboBoxItem Content="CNY - Chinese Renminbi"/>
+                    <ComboBoxItem Content="HKD - Hong Kong Dollar"/>
+                    <ComboBoxItem Content="PHP - Philippines Peso"/>
+                    <ComboBoxItem Content="PLN - Polish Zloty"/>
+                    <ComboBoxItem Content="SEK - Sweden Krona"/>
+                    <ComboBoxItem Content="SGD - Singapore Dollar"/>
+                    <ComboBoxItem Content="TWD - Taiwanese Dollar"/>
+                    <ComboBoxItem Content="MYR - Malaysian Ringgit"/>
+                </ComboBox>
+                <!-- End of Currency Control-->
             </Grid>
         </GroupBox>
-        <!--
-        <GroupBox Header="Advanced Options" Margin="11,337,399,10">
-            <Grid Margin="0,0,0,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                    <RowDefinition Height="20"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="240"/>
-                    <ColumnDefinition Width="20"/>
-                </Grid.ColumnDefinitions>
-                <ScrollViewer Grid.Row="0" Grid.RowSpan="4" Grid.Column="2" Height="80" VerticalScrollBarVisibility="Auto"/>
-                <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUswe" Text="User Email: "/>
-                <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUserwehone" Text="User Telephone: "/>
-                <TextBlock Grid.Row="2" Grid.Column="0" TextWrapping="Wrap" x:Name="lblUseweessLine1" Text="User Address Line 1: "/>
-                <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" x:Name="lblwedressLine2" Text="User Address Line 2: " />
-
-                <TextBox Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" x:Name="txtweEmail" Text=""/>
-                <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="txwelephone" Text=""/>
-                <TextBox Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" x:Name="txtUwe" Text=""/>
-                <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" x:Name="txweressLine2" Text=""/>
-            </Grid>
-        </GroupBox>
+        <local:FindItemContainerAdvancedDetailView x:Name="AdvancedDetails" Margin="10,342,400,3" />
+        <Button x:Name="btnSaveItem" Content="Save" Margin="405,423,327,3" Click="btnSaveItem_Click"/>
     </Grid>
 </UserControl>
