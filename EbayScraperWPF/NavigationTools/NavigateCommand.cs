@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Windows.Input;
+using EbayScraperWPF.ViewModel;
 
 namespace EbayScraperWPF.NavigationTools
 {
