@@ -1,9 +1,6 @@
-﻿using System;
+﻿using EbayScraperWPF.CommandEvents;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using System.Windows.Input;
 
 namespace EbayScraperWPF.ViewModel
 {
@@ -12,11 +9,47 @@ namespace EbayScraperWPF.ViewModel
         private List<FindEbayItemData> findEbayItemDataList;
         private FindEbayItemData privateFindEbayItemData;
         public ViewModelBase CurrentViewModel { get; }
-
+        
         public FindItemsViewModel()
         {
-            
-        
+            //All of the Commands attached to the set CheckBox Params to alter the value to false
+            //The value needs to be a string because when its sent to the bot for processing 
+            //The value inputted into the bot will be a string and I want to create the least amount of friction possible before
+            //The bot scrapes the data from the Ebay page
+            chkOfferOnly = new RelayCommand(() => setCheckboxParams(OfferOnly));
+            chkBuyNowOnly = new RelayCommand(() => setCheckboxParams(BuyItNowOnly));
+            chkAuctiopnOnly = new RelayCommand(() => setCheckboxParams(AuctionOnly));
+            chkLotsOnly = new RelayCommand(() => setCheckboxParams(LotsOnly));
+            chkGetItFastOnly = new RelayCommand(() => setCheckboxParams(GetItFastOnly));
+            chkTopRatesdSellerOnly = new RelayCommand(() => setCheckboxParams(TopRatedSellerOnly));
+            chkReturnsAcceptedOnly = new RelayCommand(() => setCheckboxParams(ReturnsAcceptedOnly));
+            chkFreeShippingOnly = new RelayCommand(() => setCheckboxParams(FreeShippingOnly));
+            chkOneDayShippingOnly = new RelayCommand(() => setCheckboxParams(ExpeditedShippingType));
+
+            //Save button Command Here
+
+        }
+        public ICommand btnSaveItemCommand { get; set; }
+        public ICommand chkOfferOnly { get;  set; }
+        public ICommand chkBuyNowOnly { get;  set; }
+        public ICommand chkAuctiopnOnly { get; set; }
+        public ICommand chkLotsOnly { get;  set; }
+        public ICommand chkGetItFastOnly { get; set; }
+        public ICommand chkTopRatesdSellerOnly  { get; set; }
+        public ICommand chkReturnsAcceptedOnly {  get;  set; }
+        public ICommand chkFreeShippingOnly {  get;  set; }
+        public ICommand chkOneDayShippingOnly { get; set; }
+
+        public void setCheckboxParams(object dataParameters)
+        {
+            if (dataParameters == "" || dataParameters == "False")
+            {
+                dataParameters = "TRUE";
+            }
+            else
+            {
+                dataParameters = "FALSE";
+            }
         }
 
         public List<FindEbayItemData> FindEbayItemData
@@ -29,6 +62,7 @@ namespace EbayScraperWPF.ViewModel
             get { return privateFindEbayItemData; }
             set { privateFindEbayItemData = value; OnPropertyChanged(); }
         }
+
         public string ItemName
         {
             get { return privateFindEbayItemData.ItemName; }
