@@ -56,7 +56,7 @@ namespace EbayScraperWPF.ContainerViews
 
         private void txtExcludeSeller_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ebayFindItemData.ExcludeSeller = txtExcludeSeller.Text;
+            //ebayFindItemData.ExcludeSeller = txtExcludeSeller.Text;
             AdvancedItemUsed = true;
         }
 

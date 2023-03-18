@@ -8,14 +8,25 @@
              xmlns:Views="clr-namespace:EbayScraperWPF.Views" 
              xmlns:ViewModel="clr-namespace:EbayScraperWPF.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="380" d:DesignWidth="450">
     <UserControl.Resources>
         <ViewModel:FindItemsViewModel x:Key="vm">
         </ViewModel:FindItemsViewModel>
     </UserControl.Resources>
 
-    <Grid>
-        <GroupBox Header="Required" Margin="10,67,400,320">
+    <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65"/>
+                <RowDefinition Height="205"/>
+                <RowDefinition Height="5"/>
+                <RowDefinition Height="100"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="390"/>
+                <ColumnDefinition Width="60"/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Grid.Row="0" Header="Required">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
@@ -32,10 +43,10 @@
                 <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="txtKeywords" Text=""/>
             </Grid>
         </GroupBox>
-        <Button Margin="10,332,400,113" Click="Button_Click">
+        <Button Margin="10,332,400,113" Grid.Row="2" Click="Button_Click">
             <Views:MainView/>
         </Button>
-        <GroupBox Header="Optional" Margin="10,130,400,118">
+        <GroupBox Grid.Row="1" Header="Optional">
             <Grid Height="203">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
@@ -214,7 +225,8 @@
                 <!-- End of Currency Control-->
             </Grid>
         </GroupBox>
-        <local:FindItemContainerAdvancedDetailView x:Name="AdvancedDetails" Margin="10,342,400,3"/>
-        <Button x:Name="btnSaveItem" Content="Save" Margin="405,423,327,3" Command="{Binding SaveItemCommand}"/>
+            <local:FindItemContainerAdvancedDetailView Grid.Row="3" HorizontalAlignment="Left" x:Name="AdvancedDetails"/>
+        <Button Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Height="25" x:Name="btnSaveItem" Content="Save" Command="{Binding SaveItemCommand}"/>
+    </Grid>
     </Grid>
 </UserControl>
