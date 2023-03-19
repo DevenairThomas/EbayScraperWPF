@@ -39,8 +39,8 @@
                 <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" x:Name="lblItemName" Text="Item Name: "/>
                 <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" x:Name="lblItemKeywords" Text="Item Keywords: "/>
 
-                <TextBox Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" x:Name="txtItemName" Text=""/>
-                <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="txtKeywords" Text=""/>
+                    <TextBox Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" x:Name="txtItemName" Text="{Binding ItemName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="txtKeywords" Text="{Binding ItemKeywords, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             </Grid>
         </GroupBox>
         <Button Margin="10,332,400,113" Grid.Row="2" Click="Button_Click">
@@ -66,7 +66,7 @@
                     <ColumnDefinition Width="240"/>
                     <ColumnDefinition Width="20"/>
                 </Grid.ColumnDefinitions>
-                <ScrollViewer Grid.Row="0" Grid.RowSpan="9" Grid.Column="2" Height="200" VerticalScrollBarVisibility="Auto"/>
+                <ScrollViewer Grid.Row="0" Grid.RowSpan="9" Grid.Column="2" Height="200" VerticalScrollBarVisibility="Visible"/>
                 <!-- Price Control-->
                 <!-- Labels -->
                 <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" x:Name="lblPrice" Text="Max/Min Price: " Margin="0,0,5,0"/>
