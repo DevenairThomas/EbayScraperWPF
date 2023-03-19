@@ -55,6 +55,12 @@ namespace EbayScraperWPF
         private string? excludeSeller;
         private string? charityOnly;
 
+
+        public FindEbayItemData empty()
+        {
+            FindEbayItemData retval = new FindEbayItemData();
+            return retval;
+        }
         public string ItemName
         {
             get { if (!string.IsNullOrWhiteSpace(itemName)) { return itemName; } else return ""; }
