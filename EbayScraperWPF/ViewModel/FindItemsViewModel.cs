@@ -6,17 +6,28 @@ using System;
 
 namespace EbayScraperWPF.ViewModel
 {
+    /// <summary>
+    /// Class <c>FindItemsViewModel</c> View Model that references the View and is bound to the XAML
+    /// </summary>
     public class FindItemsViewModel : ViewModelBase
     {
+        //List bound to the List View for Saved Items
         private ObservableCollection<FindEbayItemData>? findEbayItemDataList;
+        //Object to hold the Current Viewed Data Item
         private FindEbayItemData? privateFindEbayItemData;
+        //Object bound to Selected Item from the Saved Item List View
+        private FindEbayItemData? selectedFindEbayItemData;
+       
+        //Returns this as Current View Model
         public ViewModelBase CurrentViewModel { get; }
         
+        //Obvious Constuctor is Obvious
         public FindItemsViewModel()
         {
             //emptyFindItemData();
             findEbayItemDataList = new ObservableCollection<FindEbayItemData>();
             privateFindEbayItemData = new FindEbayItemData();
+            selectedFindEbayItemData = new FindEbayItemData();
             //All of the Commands attached to the set CheckBox Params to alter the value to false
             //The value needs to be a string because when its sent to the bot for processing 
             //The value inputted into the bot will be a string and I want to create the least amount of friction possible before
@@ -31,11 +42,21 @@ namespace EbayScraperWPF.ViewModel
             chkFreeShippingOnly = new RelayCommand(() => setCheckboxParams(FreeShippingOnly));
             chkOneDayShippingOnly = new RelayCommand(() => setCheckboxParams(ExpeditedShippingType));
 
-            //Save button Command Here
+            //Save Item button Command
             SaveItemCommand = new RelayCommand(() => SaveItemToList());
+            //show Selected Item button Command
+            ShowSelectedItemCommand = new RelayCommand(() => OnSelectedItem_From_FindItemListView(SelectedFindEbayItemData));
 
         }
+        /// <summary>
+        /// Methods <c>ICommand Methods</c> Bounded Methods to the FindItems View
+        /// </summary>
+        
+        //Buttons
         public ICommand SaveItemCommand { get; set; }
+        //Selected Item
+        public ICommand ShowSelectedItemCommand { get; set; }
+        //Check Boxes... dont work as intendedS
         public ICommand chkOfferOnly { get;  set; }
         public ICommand chkBuyNowOnly { get;  set; }
         public ICommand chkAuctiopnOnly { get; set; }
@@ -46,63 +67,49 @@ namespace EbayScraperWPF.ViewModel
         public ICommand chkFreeShippingOnly {  get;  set; }
         public ICommand chkOneDayShippingOnly { get; set; }
 
+        //Public List bounded to the View accessor for private object
         public ObservableCollection<FindEbayItemData>? publicObservedFindItemData { get { return findEbayItemDataList; } }
-        public void emptyFindItemData()
+
+        /// <summary>
+        /// Method <c>SelectedFindEbayItemData</c> accessor for Selected Item Data
+        /// </summary>
+        //Still needs work... Only activates once on Selected Item data
+        //Does not show the Item data on the Form when selected
+        public FindEbayItemData SelectedFindEbayItemData
         {
-            privateFindEbayItemData.ItemName = " ";
-            privateFindEbayItemData.ItemKeywords = " ";
+            get
+            {
+                return selectedFindEbayItemData;
+            }
 
-            privateFindEbayItemData.MaxBids = " ";
-            privateFindEbayItemData.MinBids = " ";
-            privateFindEbayItemData.MaxPrice = " ";
-            privateFindEbayItemData.MinPrice = " ";
-            privateFindEbayItemData.Condition = " ";
-            privateFindEbayItemData.OfferOnly = " ";
-
-            privateFindEbayItemData.FeedbackMin = " ";
-            privateFindEbayItemData.FeedbackMax = " ";
-            privateFindEbayItemData.LotsOnly = " ";
-            privateFindEbayItemData.BestOfferOnly = " ";
-            privateFindEbayItemData.AuctionOnly = " ";
-            privateFindEbayItemData.BuyItNowOnly = " ";
-            privateFindEbayItemData.PaymentMethod = " ";
-            privateFindEbayItemData.MinQuantity = " ";
-            privateFindEbayItemData.MaxQuantity = " ";
-            privateFindEbayItemData.ListingType = " ";
-            privateFindEbayItemData.Currency = " ";
-            privateFindEbayItemData.ReturnsAcceptedOnly = " ";
-            privateFindEbayItemData.FreeShippingOnly = " ";
-            privateFindEbayItemData.ExpeditedShippingType = " ";
-            privateFindEbayItemData.EndTimeTo = " ";
-            privateFindEbayItemData.EndTimeFrom = " ";
-            privateFindEbayItemData.TopRatedSellerOnly = " ";
-            privateFindEbayItemData.MaxHandlingTime = " ";
-            privateFindEbayItemData.AvailableTo = " ";
-            privateFindEbayItemData.GetItFastOnly = " ";
-
-            privateFindEbayItemData.Seller = " ";
-            privateFindEbayItemData.ModTimeFrom = " ";
-            privateFindEbayItemData.LocatedIn = " ";
-            privateFindEbayItemData.ListedIn = " ";
-            privateFindEbayItemData.MaxDistance = " ";
-            privateFindEbayItemData.LocalPickupOnly = " ";
-            privateFindEbayItemData.LocalSearchOnly = " ";
-            privateFindEbayItemData.SellerBusinessType = " ";
-            privateFindEbayItemData.HideDuplicateItems = " ";
-            privateFindEbayItemData.ValueBoxInventory = " ";
-            privateFindEbayItemData.ExcludeAutoPay = " ";
-            privateFindEbayItemData.ExcludeCategory = " ";
-            privateFindEbayItemData.ExcludeSeller = " ";
-            privateFindEbayItemData.CharityOnly = " ";
+            set
+            {
+                if(selectedFindEbayItemData != value)
+                {
+                    selectedFindEbayItemData = value;
+                }
+                
+                System.Diagnostics.Debug.WriteLine("HIT");
+                //OnSelectedItem_From_FindItemListView(selectedFindEbayItemData);
+                OnPropertyChanged();
+            }
         }
-
+        //Method to set the Selected Item to the Public Ebay Item... Also doesnt work
+        public void OnSelectedItem_From_FindItemListView(FindEbayItemData selectedItem)
+        {
+            publicFindEbayItemData = selectedItem;
+            System.Diagnostics.Debug.WriteLine("HIT");
+        }
+        //Bounded to the Save button, Saves Item to the List View
         public void SaveItemToList()
         {
             FindEbayItemDataList.Add(privateFindEbayItemData);
             System.Diagnostics.Debug.WriteLine(privateFindEbayItemData.ItemName);
             OnPropertyChanged("findEbayItemDataList");
         }
-
+        //Supposed to be for setting check box parameters doesnt work is a 
+        //TODO list item and probably needs to be completely reworked from  the 
+        //Model itself
         public void setCheckboxParams(object dataParameters)
         {
             if (dataParameters == "" || dataParameters == "False")
@@ -114,7 +121,9 @@ namespace EbayScraperWPF.ViewModel
                 dataParameters = "FALSE";
             }
         }
-
+        /// <summary>
+        /// Method <c>FindEbayItemDataList</c> accessor for Find Ebay Item Data List
+        /// </summary>
         public ObservableCollection<FindEbayItemData> FindEbayItemDataList
         {
             get => findEbayItemDataList;
@@ -127,6 +136,10 @@ namespace EbayScraperWPF.ViewModel
                 }
             }
         }
+        /// <summary>
+        /// Methoda <c>All the FindEbayItem Properties</c> All accessors for the FindEbayItemData model
+        /// </summary>
+        //If Checkboxes needs to be reworked start here and inside the FindEbayItemsData class
         public FindEbayItemData publicFindEbayItemData
         {
             get { return privateFindEbayItemData; }
