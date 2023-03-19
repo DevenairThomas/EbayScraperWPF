@@ -2,8 +2,8 @@
 This will just deal with the Windows form that will interact with the database and python script.
 
 Create a form that a user can input items and details of the item the user wishes to search for.
-The Application will then call a python bot application using Windows Pipe that will search for the item.
-Python Bot will dump data into a database that will be pulled from by the form Application and displayed.
+Shows data collected but also sends data through a windows pipe
+Output the data to a windows pipe for a 
 
 ## Installation
 
