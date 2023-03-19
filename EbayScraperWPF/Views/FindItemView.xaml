@@ -8,10 +8,16 @@
         mc:Ignorable="d" Height="450" Width="800">
     <Grid>
         <ContainerViews:FindItemContainerView Margin="305,60,45,10"/>
-        <ListView d:ItemsSource="{Binding publicObservedFindItemData}" DisplayMemberPath="ItemName" Name ="ItemName"  Width="250" Margin="10,60,540,10">
+        <ListView ItemsSource="{Binding FindEbayItemDataList}"  Width="250" Margin="10,60,540,10">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Item Name" x:Name="Firstname" Width="180">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ItemName}" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>

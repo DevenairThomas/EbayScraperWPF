@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using System;
 
 namespace EbayScraperWPF.ViewModel
 {
     public class FindItemsViewModel : ViewModelBase
     {
         private ObservableCollection<FindEbayItemData>? findEbayItemDataList;
-        private FindEbayItemData? privateFindEbayItemData = new FindEbayItemData();
+        private FindEbayItemData? privateFindEbayItemData;
         public ViewModelBase CurrentViewModel { get; }
         
         public FindItemsViewModel()
         {
-            emptyFindItemData();
+            //emptyFindItemData();
+            findEbayItemDataList = new ObservableCollection<FindEbayItemData>();
+            privateFindEbayItemData = new FindEbayItemData();
             //All of the Commands attached to the set CheckBox Params to alter the value to false
             //The value needs to be a string because when its sent to the bot for processing 
             //The value inputted into the bot will be a string and I want to create the least amount of friction possible before
@@ -29,10 +32,10 @@ namespace EbayScraperWPF.ViewModel
             chkOneDayShippingOnly = new RelayCommand(() => setCheckboxParams(ExpeditedShippingType));
 
             //Save button Command Here
-            btnSaveItemCommand = new RelayCommand(() => SaveItemToList());
+            SaveItemCommand = new RelayCommand(() => SaveItemToList());
 
         }
-        public ICommand btnSaveItemCommand { get; set; }
+        public ICommand SaveItemCommand { get; set; }
         public ICommand chkOfferOnly { get;  set; }
         public ICommand chkBuyNowOnly { get;  set; }
         public ICommand chkAuctiopnOnly { get; set; }
@@ -95,11 +98,9 @@ namespace EbayScraperWPF.ViewModel
 
         public void SaveItemToList()
         {
-            ObservableCollection<FindEbayItemData> tempList;
-            tempList = FindEbayItemDataList;
-            tempList.Add(privateFindEbayItemData);
-            FindEbayItemDataList = tempList;
+            FindEbayItemDataList.Add(privateFindEbayItemData);
             System.Diagnostics.Debug.WriteLine(privateFindEbayItemData.ItemName);
+            OnPropertyChanged("findEbayItemDataList");
         }
 
         public void setCheckboxParams(object dataParameters)
@@ -116,8 +117,15 @@ namespace EbayScraperWPF.ViewModel
 
         public ObservableCollection<FindEbayItemData> FindEbayItemDataList
         {
-            get { return findEbayItemDataList; }
-            set { findEbayItemDataList = value; OnPropertyChanged(); }
+            get => findEbayItemDataList;
+            set 
+            { 
+                if (findEbayItemDataList != value)
+                {
+                    findEbayItemDataList = value;
+                    OnPropertyChanged();
+                }
+            }
         }
         public FindEbayItemData publicFindEbayItemData
         {
