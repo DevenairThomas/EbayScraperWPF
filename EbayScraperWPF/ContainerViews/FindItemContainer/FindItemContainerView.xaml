@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EbayScraperWPF.ContainerViews"
-             xmlns:Views="clr-namespace:EbayScraperWPF.Views" xmlns:ItemDataContainer="clr-namespace:EbayScraperWPF.ContainerViews.ItemDataContainer" x:Class="EbayScraperWPF.ContainerViews.FindItemContainerView"
+             xmlns:Views="clr-namespace:EbayScraperWPF.Views"
+             xmlns:ItemDataContainer="clr-namespace:EbayScraperWPF.ContainerViews" x:Class="EbayScraperWPF.ContainerViews.FindItemContainerView"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -207,7 +208,7 @@
                 <!-- End of Currency Control-->
             </Grid>
         </GroupBox>
-        <local:FindItemContainerAdvancedDetailView x:Name="AdvancedDetails" Margin="10,342,400,3" />
+        <ItemDataContainer:FindItemContainerAdvancedDetailView x:Name="AdvancedDetails" Margin="10,342,400,3" />
         <Button x:Name="btnSaveItem" Content="Save" Margin="405,423,327,3" Click="btnSaveItem_Click"/>
     </Grid>
 </UserControl>
