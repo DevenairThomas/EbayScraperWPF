@@ -4,12 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EbayScraperWPF"
+        xmlns:Views ="clr-namespace:EbayScraperWPF.Views"
+        xmlns:ViewModel ="clr-namespace:EbayScraperWPF.ViewModel"
         mc:Ignorable="d"
-        Title="EbayScraper" Height="450" Width="800">
+        Title="EbayScraper" Height="600" Width="1000">
+    <Window.DataContext>
+        <ViewModel:FindItemsViewModel/>
+    </Window.DataContext>
     <Grid>
-        <Grid.RowDefinitions >
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-        </Grid.ColumnDefinitions>
+        <Views:FindItemView HorizontalAlignment="Left" VerticalAlignment="Top" Height="473" Width="821" Margin="179,111,0,0"/>
     </Grid>
 </Window>

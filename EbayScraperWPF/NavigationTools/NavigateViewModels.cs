@@ -1,5 +1,5 @@
 ﻿
-
+using EbayScraperWPF.ViewModel;
 using System;
 
 namespace EbayScraperWPF.NavigationTools

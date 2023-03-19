@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EbayScraperWPF;
 
-namespace EbayScraperWPF
+namespace EbayScraperWPF.ViewModel
 {
     public class UserViewModel : ViewModelBase
     {

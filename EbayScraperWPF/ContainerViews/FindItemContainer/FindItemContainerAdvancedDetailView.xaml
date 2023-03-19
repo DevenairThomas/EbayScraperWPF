@@ -5,9 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EbayScraperWPF.ContainerViews"
              xmlns:Views="clr-namespace:EbayScraperWPF.Views" 
-             xmlns:Controls="clr-namespace:EbayScraperWPF.ContainerViews" 
+             xmlns:ViewModel ="clr-namespace:EbayScraperWPF.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="105" d:DesignWidth="390">
+
+    <UserControl.DataContext>
+        <ViewModel:FindItemsViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <GroupBox Header="Advanced Options" Width="390" Height="105" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid Margin="0,0,0,0">
@@ -23,16 +27,16 @@
                     <ColumnDefinition Width="240"/>
                     <ColumnDefinition Width="20"/>
                 </Grid.ColumnDefinitions>
-                <ScrollViewer Grid.Row="0" Grid.RowSpan="4" Grid.Column="2" Height="80" VerticalScrollBarVisibility="Auto"/>
+                <ScrollViewer Grid.Row="0" Grid.RowSpan="4" Grid.Column="2" Height="80" VerticalScrollBarVisibility="Visible"/>
 
                 <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" x:Name="lblSeller" Text="Seller Name: "/>
                 <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" x:Name="lblExcludeSeller" Text="Exclude Seller: "/>
 
-                <TextBox Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" x:Name="txtSeller" Text="" TextChanged="txtSeller_TextChanged"/>
-                <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="txtExcludeSeller" Text="" TextChanged="txtExcludeSeller_TextChanged"/>
+                <TextBox Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" x:Name="txtSeller" Text="{Binding SellerName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="txtExcludeSeller" Text="{Binding ExcludeSeller, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Grid.Row="2" Grid.Column="0" TextWrapping="Wrap" x:Name="lblSellerBusinessType" Text="Seller Business Type: " />
-                <ComboBox Grid.Row="2" Grid.Column="1" x:Name="cmbBoxSellerBusinessType" Text="Seller Business Type" SelectionChanged="cmbBoxSellerBusinessType_SelectionChanged">
+                <ComboBox Grid.Row="2" Grid.Column="1" x:Name="cmbBoxSellerBusinessType" Text="{Binding SellerBusinessType}" >
                     <ComboBoxItem Content="Business"/>
                     <ComboBoxItem Content="Private"/>
                 </ComboBox>
@@ -41,32 +45,32 @@
                 <!-- Labels -->
                 <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" TextAlignment="Center" FontSize="8"  x:Name="lblHideDuplicateItems" Text="Hide Duplicate Items: " Margin="0,0,60,0"/>
                 <!-- Text Control -->
-                <CheckBox Grid.Row="3" Grid.Column="0" x:Name="chkHideDuplicateItems" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="61,0,0,0" Checked="chkHideDuplicateItems_Checked"/>
+                <CheckBox Grid.Row="3" Grid.Column="0" x:Name="chkHideDuplicateItems" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="61,0,0,0" Command="{Binding chkHideDuplicateItems}"/>
                 <!-- End of  Hide Duplicate -->
 
                 <!-- Exclude Auto Pay -->
                 <!-- Labels -->
                 <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" TextAlignment="Center" FontSize="8"  x:Name="lblExcludeAutoPay" Text="Exclude Auto Pay: " Margin="85,0,197,0" Grid.ColumnSpan="2"/>
                 <!-- Text Control -->
-                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="txtExcludeAutoPay" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="43,0,0,0" Checked="txtExcludeAutoPay_Checked"/>
+                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="txtExcludeAutoPay" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="43,0,0,0" Command="{Binding chkExcludeAutoPay}"/>
                 <!-- End of Exclude Auto Pay -->
 
                 <!-- ValueBox Inventory -->
                 <!-- Labels -->
                 <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" FontSize="8"  x:Name="lblValueBoxInventory" Text="Value Box Inventory: " Margin="63,0,103,0"/>
                 <!-- Text Control -->
-                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="chkValueBoxInventory" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="138,0,0,0" Checked="chkValueBoxInventory_Checked"/>
+                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="chkValueBoxInventory" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="138,0,0,0" Command="{Binding chkValueBoxInventory}"/>
                 <!-- End of Exclude Category -->
 
                 <!-- charity Only -->
                 <!-- Labels -->
                 <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" FontSize="8"  x:Name="lblCharityOnly" Text="Charity Only: " Margin="160,0,20,0"/>
                 <!-- Text Control -->
-                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="chkCharityOnly" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="220,0,0,0" Checked="chkCharityOnly_Checked"/>
+                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="chkCharityOnly" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="220,0,0,0" Command="{Binding chkCharityOnly}"/>
                 <!-- End of charity Only -->
 
                 <TextBlock Grid.Row="4" Grid.Column="0" TextWrapping="Wrap" x:Name="lblExcludeCategory" Text="Seller Business Type: " />
-                <TextBox Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" x:Name="txtExcludeCategory" Text="" TextChanged="txtExcludeCategory_TextChanged"/>
+                <TextBox Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" x:Name="txtExcludeCategory" Text="{Binding ExcludeCategory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
             </Grid>
         </GroupBox>

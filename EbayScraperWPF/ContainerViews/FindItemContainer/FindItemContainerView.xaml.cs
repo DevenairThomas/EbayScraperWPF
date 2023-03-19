@@ -36,18 +36,5 @@ namespace EbayScraperWPF.ContainerViews
                 AdvancedDetails.Visibility = Visibility.Visible;
             }
         }
-
-        private void btnSaveItem_Click(object sender, RoutedEventArgs e)
-        {
-            if(AdvancedDetails.AdvancedItemUsed == true)
-            {
-
-            }
-        }
-
-        private void addAdvancedDetailsToItems()
-        {
-
-        }
     }
 }
