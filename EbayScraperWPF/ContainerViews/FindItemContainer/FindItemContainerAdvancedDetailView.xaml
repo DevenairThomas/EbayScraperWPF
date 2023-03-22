@@ -7,13 +7,13 @@
              xmlns:Views="clr-namespace:EbayScraperWPF.Views" 
              xmlns:ViewModel ="clr-namespace:EbayScraperWPF.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="105" d:DesignWidth="390">
+             d:DesignHeight="125" d:DesignWidth="450">
 
     <UserControl.DataContext>
         <ViewModel:FindItemsViewModel/>
     </UserControl.DataContext>
     <Grid>
-        <GroupBox Header="Advanced Options" Width="390" Height="105" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <GroupBox Header="Advanced Options" Width="450" Height="125" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Grid Margin="0,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20"/>
@@ -24,10 +24,10 @@
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="120"/>
-                    <ColumnDefinition Width="240"/>
+                    <ColumnDefinition Width="315"/>
                     <ColumnDefinition Width="20"/>
                 </Grid.ColumnDefinitions>
-                <ScrollViewer Grid.Row="0" Grid.RowSpan="4" Grid.Column="2" Height="80" VerticalScrollBarVisibility="Visible"/>
+                <ScrollViewer Grid.Row="0" Grid.RowSpan="4" Grid.Column="2" Height="80" VerticalScrollBarVisibility="Hidden"/>
 
                 <TextBlock Grid.Row="0" Grid.Column="0" TextWrapping="Wrap" x:Name="lblSeller" Text="Seller Name: "/>
                 <TextBlock Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" x:Name="lblExcludeSeller" Text="Exclude Seller: "/>
@@ -43,30 +43,30 @@
 
                 <!-- Hide Duplicate Items -->
                 <!-- Labels -->
-                <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" TextAlignment="Center" FontSize="8"  x:Name="lblHideDuplicateItems" Text="Hide Duplicate Items: " Margin="0,0,60,0"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" TextAlignment="Center" FontSize="8" x:Name="lblHideDuplicateItems" Text="Hide Duplicate Items: " Margin="0,0,35,0"/>
                 <!-- Text Control -->
-                <CheckBox Grid.Row="3" Grid.Column="0" x:Name="chkHideDuplicateItems" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="61,0,0,0" Command="{Binding chkHideDuplicateItems}"/>
+                <CheckBox Grid.Row="3" Grid.Column="0" x:Name="chkHideDuplicateItems" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="85,0,0,0" Command="{Binding chkHideDuplicateItems}"/>
                 <!-- End of  Hide Duplicate -->
 
                 <!-- Exclude Auto Pay -->
                 <!-- Labels -->
-                <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" TextAlignment="Center" FontSize="8"  x:Name="lblExcludeAutoPay" Text="Exclude Auto Pay: " Margin="85,0,197,0" Grid.ColumnSpan="2"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" TextWrapping="Wrap" TextAlignment="Center" FontSize="8" Width="80" x:Name="lblExcludeAutoPay" Text="Exclude Auto Pay: " Margin="105,1,250,19" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
                 <!-- Text Control -->
-                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="txtExcludeAutoPay" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="43,0,0,0" Command="{Binding chkExcludeAutoPay}"/>
+                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="txtExcludeAutoPay" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="70,0,0,0" Command="{Binding chkExcludeAutoPay}"/>
                 <!-- End of Exclude Auto Pay -->
 
                 <!-- ValueBox Inventory -->
                 <!-- Labels -->
-                <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" FontSize="8"  x:Name="lblValueBoxInventory" Text="Value Box Inventory: " Margin="63,0,103,0"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" Width="80" FontSize="8" x:Name="lblValueBoxInventory" Text="Value Box Inventory: " Margin="95,0,140,0"/>
                 <!-- Text Control -->
-                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="chkValueBoxInventory" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="138,0,0,0" Command="{Binding chkValueBoxInventory}"/>
+                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="chkValueBoxInventory" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="180,0,0,0" Command="{Binding chkValueBoxInventory}"/>
                 <!-- End of Exclude Category -->
 
                 <!-- charity Only -->
                 <!-- Labels -->
-                <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" TextAlignment="Center" FontSize="8"  x:Name="lblCharityOnly" Text="Charity Only: " Margin="160,0,20,0"/>
+                <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" FontSize="8" x:Name="lblCharityOnly" Text="Charity Only: " TextAlignment="Center" Width="80" Margin="205,0,30,0"/>
                 <!-- Text Control -->
-                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="chkCharityOnly" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="220,0,0,0" Command="{Binding chkCharityOnly}"/>
+                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="chkCharityOnly" Width="20" Height="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="290,0,0,0" Command="{Binding chkCharityOnly}"/>
                 <!-- End of charity Only -->
 
                 <TextBlock Grid.Row="4" Grid.Column="0" TextWrapping="Wrap" x:Name="lblExcludeCategory" Text="Seller Business Type: " />

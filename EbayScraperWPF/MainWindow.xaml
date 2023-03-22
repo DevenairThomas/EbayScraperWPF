@@ -7,11 +7,11 @@
         xmlns:Views ="clr-namespace:EbayScraperWPF.Views"
         xmlns:ViewModel ="clr-namespace:EbayScraperWPF.ViewModel"
         mc:Ignorable="d"
-        Title="EbayScraper" Height="600" Width="1000">
+        Title="EbayScraper" Height="500" Width="800">
     <Window.DataContext>
         <ViewModel:FindItemsViewModel/>
     </Window.DataContext>
     <Grid>
-        <Views:FindItemView HorizontalAlignment="Left" VerticalAlignment="Top" Height="473" Width="821" Margin="179,111,0,0"/>
+        <Views:FindItemView HorizontalAlignment="Center" VerticalAlignment="Top" Height="473" Width="820" Margin="0,64,0,0"/>
     </Grid>
 </Window>
