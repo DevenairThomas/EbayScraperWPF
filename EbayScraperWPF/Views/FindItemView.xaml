@@ -4,11 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EbayScraperWPF"
+        xmlns:ViewModel ="clr-namespace:EbayScraperWPF.ViewModel"
         xmlns:ContainerViews="clr-namespace:EbayScraperWPF.ContainerViews" x:Class="EbayScraperWPF.Views.FindItemView"
-        mc:Ignorable="d" Height="450" Width="800">
+        mc:Ignorable="d" Height="410" Width="780">
+    <UserControl.DataContext>
+        <ViewModel:FindItemsViewModel/>
+    </UserControl.DataContext>
     <Grid>
-        <ContainerViews:FindItemContainerView Margin="305,60,45,10"/>
-        <ListView ItemsSource="{Binding FindEbayItemDataList}" SelectedItem="{Binding SelectedFindEbayItemData, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"  Width="250" Margin="10,60,540,10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="4" VerticalAlignment="Top" Height="25" x:Name="btnSaveItem" Content="Save" Command="{Binding SaveItemCommand}" Margin="0,375,0,0"/>
+        <ContainerViews:FindItemContainerView DataContext="{Binding _FindItemContainerViewModel}" Grid.Column="3" Margin="0,3,0,0"/>
+        <ListView ItemsSource="{Binding FindEbayItemDataList,Mode=TwoWay}" SelectionMode="Single" SelectedItem="{Binding SelectedFindEbayItemData, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="400"  Width="250" Margin="0,0,10,0" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Item Name" x:Name="Firstname" Width="180">
