@@ -20,6 +20,11 @@ namespace EbayScraperWPF.ViewModel
         //Object bound to Selected Item from the Saved Item List View
         private FindEbayItemData? selectedFindEbayItemData;
 
+        //Selected item Index
+        private int selectedItemIndex;
+        //boolean for the Selected Item
+        private bool b_SelectedItem;
+
         //Returns this as Current View Model
         public ViewModelBase CurrentViewModel { get; }
 
@@ -31,6 +36,7 @@ namespace EbayScraperWPF.ViewModel
 
             //Save Item button Command
             SaveItemCommand = new RelayCommand(() => SaveCurrentItem_AddToList());
+            DeleteSelectedItemCommand = new RelayCommand(() => DeleteSelectedItem());
             //show Selected Item button Command
             ShowSelectedItemCommand = new RelayCommand(() => OnSelectedItem_From_FindItemListView());
 
@@ -43,6 +49,7 @@ namespace EbayScraperWPF.ViewModel
 
         //Buttons
         public ICommand SaveItemCommand { get; set; }
+        public ICommand DeleteSelectedItemCommand { get; set; }
         //Selected Item
         public ICommand ShowSelectedItemCommand { get; set; }
 
@@ -65,6 +72,10 @@ namespace EbayScraperWPF.ViewModel
                     selectedFindEbayItemData = value;
                     OnSelectedItem_From_FindItemListView();
                 }
+                if (findEbayItemDataList.Count > 1)
+                {
+                    b_SelectedItem = true;
+                }
                 
                 OnPropertyChanged();
             }
@@ -72,14 +83,35 @@ namespace EbayScraperWPF.ViewModel
         //Method to set the Selected Item to the Public Ebay Item... Also doesnt work
         public void OnSelectedItem_From_FindItemListView()
         {
+            if (SelectedItemIndex < 0)
+            {
+                return;
+            }
             showSelectedFindEbayDataItem(selectedFindEbayItemData);
         }
         //Bounded to the Save button, Saves Item to the List View
         public void SaveCurrentItem_AddToList()
         {
-            var tempItem = _FindItemContainerViewModel.FindEbayItemData;
-            findEbayItemDataList.Add(tempItem);
+            if (b_SelectedItem == true)
+            {
+                findEbayItemDataList[SelectedItemIndex] = _FindItemContainerViewModel.FindEbayItemData;
+            }
+            else
+            {
+                var tempItem = _FindItemContainerViewModel.FindEbayItemData;
+                findEbayItemDataList.Add(tempItem);
+            }
+            b_SelectedItem = false;
             _FindItemContainerViewModel.FindEbayItemData = new FindEbayItemData();
+        }
+        public void DeleteSelectedItem()
+        {
+            if (b_SelectedItem == true)
+            {
+                findEbayItemDataList.RemoveAt(SelectedItemIndex);
+            }
+            else
+                return;
         }
         /// <summary>
         /// Method <c>FindEbayItemDataList</c> accessor for Find Ebay Item Data List
@@ -94,6 +126,19 @@ namespace EbayScraperWPF.ViewModel
                     findEbayItemDataList = value;
                     OnPropertyChanged();
                 }
+            }
+        }
+
+        public int SelectedItemIndex
+        {
+            get => selectedItemIndex;
+            set
+            {
+                if (selectedItemIndex == value)
+                    return;
+
+                selectedItemIndex = value;
+                OnPropertyChanged();
             }
         }
         public void showSelectedFindEbayDataItem(FindEbayItemData item)

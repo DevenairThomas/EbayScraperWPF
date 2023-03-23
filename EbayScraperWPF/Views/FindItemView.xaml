@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EbayScraperWPF"
         xmlns:ViewModel ="clr-namespace:EbayScraperWPF.ViewModel"
         xmlns:ContainerViews="clr-namespace:EbayScraperWPF.ContainerViews" x:Class="EbayScraperWPF.Views.FindItemView"
-        mc:Ignorable="d" Height="410" Width="780">
+        mc:Ignorable="d" Height="410" Width="830">
     <UserControl.DataContext>
         <ViewModel:FindItemsViewModel/>
     </UserControl.DataContext>
@@ -16,11 +16,23 @@
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="450"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="110"/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="4" VerticalAlignment="Top" Height="25" x:Name="btnSaveItem" Content="Save" Command="{Binding SaveItemCommand}" Margin="0,375,0,0"/>
+        <Grid Grid.Column="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="370"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Button Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="50" x:Name="btnDeleteItem" Content="Delete" Command="{Binding DeleteSelectedItemCommand}"/>
+            <Button Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="50" x:Name="btnSaveItem" Content="Save" Command="{Binding SaveItemCommand}"/>
+        </Grid>
         <ContainerViews:FindItemContainerView DataContext="{Binding _FindItemContainerViewModel}" Grid.Column="3" Margin="0,3,0,0"/>
-        <ListView ItemsSource="{Binding FindEbayItemDataList,Mode=TwoWay}" SelectionMode="Single" SelectedItem="{Binding SelectedFindEbayItemData, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="400"  Width="250" Margin="0,0,10,0" Grid.ColumnSpan="2">
+        <ListView ItemsSource="{Binding FindEbayItemDataList,Mode=TwoWay}" SelectionMode="Single" SelectedIndex="{Binding SelectedItemIndex}" SelectedItem="{Binding SelectedFindEbayItemData, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="400"  Width="250" Margin="0,0,10,0" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Item Name" x:Name="Firstname" Width="180">
