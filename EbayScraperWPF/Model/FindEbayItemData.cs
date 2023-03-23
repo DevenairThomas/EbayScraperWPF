@@ -40,7 +40,7 @@ namespace EbayScraperWPF
         private string? availableTo;
         private string? getItFastOnly;
 
-        private string? seller;
+        private string? sellerName;
         private string? modTimeFrom;
         private string? locatedIn;
         private string? listedIn;
@@ -202,10 +202,10 @@ namespace EbayScraperWPF
             get { if (!string.IsNullOrWhiteSpace(getItFastOnly)) { return getItFastOnly; } else return ""; }
             set { getItFastOnly = value; }
         }
-        public string Seller
+        public string SellerName
         {
-            get { if (!string.IsNullOrWhiteSpace(seller)) { return seller; } else return ""; }
-            set { seller = value; }
+            get { if (!string.IsNullOrWhiteSpace(sellerName)) { return sellerName; } else return ""; }
+            set { sellerName = value; }
         }
         public string ModTimeFrom
         {

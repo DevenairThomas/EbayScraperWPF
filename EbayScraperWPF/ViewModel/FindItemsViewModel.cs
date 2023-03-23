@@ -171,7 +171,7 @@ namespace EbayScraperWPF.ViewModel
             _FindItemContainerViewModel.MaxHandlingTime = item.MaxHandlingTime;
             _FindItemContainerViewModel.AvailableTo = item.AvailableTo;
             _FindItemContainerViewModel.GetItFastOnly = item.GetItFastOnly;
-            _FindItemContainerViewModel.Seller = item.Seller;
+            _FindItemContainerViewModel.SellerName = item.SellerName;
             _FindItemContainerViewModel.ModTimeFrom = item.ModTimeFrom;
             _FindItemContainerViewModel.LocatedIn = item.LocatedIn;
             _FindItemContainerViewModel.ListedIn = item.ListedIn;

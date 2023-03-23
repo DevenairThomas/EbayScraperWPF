@@ -18,6 +18,17 @@ namespace EbayScraperWPF.ViewModel.ContainerViewModel
         /// </summary>
         //If Checkboxes needs to be reworked start here and inside the FindEbayItemsData class
 
+        private bool bOfferOnly = false;
+        private bool bBuyNowOnly = false;
+        private bool bAuctiopnOnly = false;
+        private bool bLotsOnly = false;
+        private bool bGetItFastOnly = false;
+        private bool bTopRatesdSellerOnly = false;
+        private bool bReturnsAcceptedOnly = false;
+        private bool bFreeShippingOnly = false;
+        private bool bOneDayShippingOnly = false;
+
+
         public FindItemContainerViewModel()
         {
             privateFindEbayItemData = new FindEbayItemData();
@@ -25,42 +36,59 @@ namespace EbayScraperWPF.ViewModel.ContainerViewModel
             //The value needs to be a string because when its sent to the bot for processing 
             //The value inputted into the bot will be a string and I want to create the least amount of friction possible before
             //The bot scrapes the data from the Ebay page
-            chkOfferOnly = new RelayCommand(() => setCheckboxParams(OfferOnly));
-            chkBuyNowOnly = new RelayCommand(() => setCheckboxParams(BuyItNowOnly));
-            chkAuctiopnOnly = new RelayCommand(() => setCheckboxParams(AuctionOnly));
-            chkLotsOnly = new RelayCommand(() => setCheckboxParams(LotsOnly));
-            chkGetItFastOnly = new RelayCommand(() => setCheckboxParams(GetItFastOnly));
-            chkTopRatesdSellerOnly = new RelayCommand(() => setCheckboxParams(TopRatedSellerOnly));
-            chkReturnsAcceptedOnly = new RelayCommand(() => setCheckboxParams(ReturnsAcceptedOnly));
-            chkFreeShippingOnly = new RelayCommand(() => setCheckboxParams(FreeShippingOnly));
-            chkOneDayShippingOnly = new RelayCommand(() => setCheckboxParams(ExpeditedShippingType));
+            chkOfferOnly = new RelayCommand(() => setOfferOnly());
+            chkBuyNowOnly = new RelayCommand(() => setBuyNowOnly());
+            chkAuctionOnly = new RelayCommand(() => setAuctiopnOnly());
+            chkLotsOnly = new RelayCommand(() => setLotsOnly());
+            chkGetItFastOnly = new RelayCommand(() => setGetItFastOnly());
+            chkTopRatesdSellerOnly = new RelayCommand(() => setTopRatesdSellerOnly());
+            chkReturnsAcceptedOnly = new RelayCommand(() => setReturnsAcceptedOnly());
+            chkFreeShippingOnly = new RelayCommand(() => setFreeShippingOnly());
+            chkOneDayShippingOnly = new RelayCommand(() => setOneDayShippingOnly());
+            chkHideDuplicateItems = new RelayCommand(() => setOfferOnly());
+            chkExcludeAutoPay = new RelayCommand(() => setBuyNowOnly());
+            chkValueBoxInventory = new RelayCommand(() => setAuctiopnOnly());
+            chkCharityOnly = new RelayCommand(() => setLotsOnly());
+            chkTopRatedSellerOnly = new RelayCommand(() => setGetItFastOnly());
+            chkExpeditedShippingType = new RelayCommand(() => setTopRatesdSellerOnly());
         }
 
         //Check Boxes... dont work as intendedS
         public ICommand chkOfferOnly { get; set; }
         public ICommand chkBuyNowOnly { get; set; }
-        public ICommand chkAuctiopnOnly { get; set; }
+        public ICommand chkAuctionOnly { get; set; }
         public ICommand chkLotsOnly { get; set; }
         public ICommand chkGetItFastOnly { get; set; }
         public ICommand chkTopRatesdSellerOnly { get; set; }
         public ICommand chkReturnsAcceptedOnly { get; set; }
         public ICommand chkFreeShippingOnly { get; set; }
         public ICommand chkOneDayShippingOnly { get; set; }
+        //
+        public ICommand chkHideDuplicateItems { get; set; }
+        public ICommand chkExcludeAutoPay { get; set; }
+        public ICommand chkValueBoxInventory { get; set; }
+        public ICommand chkCharityOnly { get; set; }
+        public ICommand chkTopRatedSellerOnly { get; set; }
+        public ICommand chkExpeditedShippingType { get; set; }
 
         //Supposed to be for setting check box parameters doesnt work is a 
         //TODO list item and probably needs to be completely reworked from  the 
         //Model itself
-        public void setCheckboxParams(object dataParameters)
-        {
-            if (dataParameters == "" || dataParameters == "False")
-            {
-                dataParameters = "TRUE";
-            }
-            else
-            {
-                dataParameters = "FALSE";
-            }
-        }
+        public void setOfferOnly() { bOfferOnly = !bOfferOnly; }
+        public void setBuyNowOnly() { bBuyNowOnly = !bBuyNowOnly; }
+        public void setAuctiopnOnly() { bAuctiopnOnly = !bAuctiopnOnly; }
+        public void setLotsOnly() { bLotsOnly = !bLotsOnly; }
+        public void setGetItFastOnly() { bGetItFastOnly = !bGetItFastOnly; }
+        public void setTopRatesdSellerOnly() { bTopRatesdSellerOnly = !bTopRatesdSellerOnly; }
+        public void setReturnsAcceptedOnly() { bReturnsAcceptedOnly = !bReturnsAcceptedOnly; }
+        public void setFreeShippingOnly() { bFreeShippingOnly = !bFreeShippingOnly; }
+        public void setOneDayShippingOnly() { bOneDayShippingOnly = !bOneDayShippingOnly; }
+        public void setHideDuplicateItems() { bOfferOnly = !bOfferOnly; }
+        public void setExcludeAutoPay() { bBuyNowOnly = !bBuyNowOnly; }
+        public void setValueboxInventory() { bAuctiopnOnly = !bAuctiopnOnly; }
+        public void setCharityOnly() { bLotsOnly = !bLotsOnly; }
+        public void setTopRatedSellerOnly() { bGetItFastOnly = !bGetItFastOnly; }
+        public void setExpeditedShippingType() { bTopRatesdSellerOnly = !bTopRatesdSellerOnly; }
 
         public FindEbayItemData FindEbayItemData
         {
@@ -212,10 +240,10 @@ namespace EbayScraperWPF.ViewModel.ContainerViewModel
             get { if (!string.IsNullOrWhiteSpace(privateFindEbayItemData.GetItFastOnly)) { return privateFindEbayItemData.GetItFastOnly; } else return ""; }
             set { privateFindEbayItemData.GetItFastOnly = value; OnPropertyChanged(); }
         }
-        public string Seller
+        public string SellerName
         {
-            get { if (!string.IsNullOrWhiteSpace(privateFindEbayItemData.Seller)) { return privateFindEbayItemData.Seller; } else return ""; }
-            set { privateFindEbayItemData.Seller = value; OnPropertyChanged(); }
+            get { if (!string.IsNullOrWhiteSpace(privateFindEbayItemData.SellerName)) { return privateFindEbayItemData.SellerName; } else return ""; }
+            set { privateFindEbayItemData.SellerName = value; OnPropertyChanged(); }
         }
         public string ModTimeFrom
         {

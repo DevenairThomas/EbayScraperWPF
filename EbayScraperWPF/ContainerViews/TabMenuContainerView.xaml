@@ -5,24 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EbayScraperWPF.ContainerViews"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="30" d:DesignWidth="870">
     <Grid>
         <Grid Background="#FFE5E5E5" Margin="0,69,0,351"/>
-        <ToolBarTray Background="White">
+        <ToolBarTray HorizontalAlignment="Center" Background="White">
             <ToolBar Band="0" BandIndex="0">
-                <Button Content="Home" Width="80" Command="{Binding NavigateToHomeViewModel}"/>
+                <Button Content="Home" Width="100" Command="{Binding NavigateToHomeViewModel}"/>
                 <Separator/>
-                <Button Content="User" Width="80" Command="{Binding NavigateToUserViewModel}"/>
+                <Button Content="User" Width="100" Command="{Binding NavigateToUserViewModel}"/>
                 <Separator/>
-                <Button Content="Find Item" Width="101" Command="{Binding NavigateToFindItemViewModel}"/>
+                <Button Content="Find Item" Width="120" Command="{Binding NavigateToFindItemViewModel}"/>
                 <Separator/>
-                <Button Content="Find Sold Item" Width="121" Command="{Binding NavigateToFindSoldItemViewModel}"/>
+                <Button Content="Find Sold Item" Width="120" Command="{Binding NavigateToFindSoldItemViewModel}"/>
                 <Separator/>
-                <Button Content="Item Analytics" Width="121" Command="{Binding NavigateToItemAnalyticsViewModel}"/>
+                <Button Content="Found Item Analytics" Width="120" Command="{Binding NavigateToItemAnalyticsViewModel}"/>
                 <Separator/>
-                <Button Content="Find Sold Item" Width="121" Command="{Binding NavigateToSoldItemAnalyticsViewModel}"/>
+                <Button Content="Sold Item Analytics" Width="120" Command="{Binding NavigateToSoldItemAnalyticsViewModel}"/>
                 <Separator/>
-                <Button Content="Checkout" Width="121" Command="{Binding NavigateToCheckoutViewModel}"/>
+                <Button Content="Top Results" Width="120" Command="{Binding NavigateToCheckoutViewModel}"/>
             </ToolBar>
         </ToolBarTray>
     </Grid>

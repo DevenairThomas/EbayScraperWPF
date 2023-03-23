@@ -6,12 +6,23 @@
         xmlns:local="clr-namespace:EbayScraperWPF"
         xmlns:Views ="clr-namespace:EbayScraperWPF.Views"
         xmlns:ViewModel ="clr-namespace:EbayScraperWPF.ViewModel"
+        xmlns:Containerviews ="clr-namespace:EbayScraperWPF.ContainerViews"
         mc:Ignorable="d"
-        Title="EbayScraper" Height="500" Width="800">
+        Title="EbayScraper" Height="500" Width="870">
     <Window.DataContext>
         <ViewModel:FindItemsViewModel/>
     </Window.DataContext>
     <Grid>
-        <Views:FindItemView HorizontalAlignment="Center" VerticalAlignment="Top" Height="473" Width="820" Margin="0,64,0,0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="405"/>
+        </Grid.RowDefinitions>
+        <Containerviews:MenuToolbarContainerView Grid.Row="1"/>
+        <Containerviews:TabMenuContainerView Grid.Row="2"/>
+        <Views:FindItemView Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" Height="405" Width="850"/>
+        
+
     </Grid>
 </Window>

@@ -20,16 +20,17 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="4">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="370"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            <Button Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="50" x:Name="btnDeleteItem" Content="Delete" Command="{Binding DeleteSelectedItemCommand}"/>
-            <Button Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="50" x:Name="btnSaveItem" Content="Save" Command="{Binding SaveItemCommand}"/>
+            <Button Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="50" x:Name="btnDeleteItem" Content="Delete" Command="{Binding DeleteSelectedItemCommand}"/>
+            <Button Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Height="25" Width="50" x:Name="btnSaveItem" Content="Save" Command="{Binding SaveItemCommand}"/>
         </Grid>
         <ContainerViews:FindItemContainerView DataContext="{Binding _FindItemContainerViewModel}" Grid.Column="3" Margin="0,3,0,0"/>
         <ListView ItemsSource="{Binding FindEbayItemDataList,Mode=TwoWay}" SelectionMode="Single" SelectedIndex="{Binding SelectedItemIndex}" SelectedItem="{Binding SelectedFindEbayItemData, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="400"  Width="250" Margin="0,0,10,0" Grid.ColumnSpan="2">
