@@ -5,12 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EbayScraperWPF.ContainerViews"
              xmlns:Views="clr-namespace:EbayScraperWPF.Views" 
-             xmlns:ViewModel ="clr-namespace:EbayScraperWPF.ViewModel"
+             xmlns:ViewModel ="clr-namespace:EbayScraperWPF.ViewModel.ContainerViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="125" d:DesignWidth="450">
 
     <UserControl.DataContext>
-        <ViewModel:FindItemsViewModel/>
+        <ViewModel:FindItemContainerViewModel/>
     </UserControl.DataContext>
     <Grid>
         <GroupBox Header="Advanced Options" Width="450" Height="125" VerticalAlignment="Top" HorizontalAlignment="Left">
