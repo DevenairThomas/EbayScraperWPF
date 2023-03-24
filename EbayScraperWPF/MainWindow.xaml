@@ -10,19 +10,32 @@
         mc:Ignorable="d"
         Title="EbayScraper" Height="500" Width="870">
     <Window.DataContext>
-        <ViewModel:FindItemsViewModel/>
+        <ViewModel:MainViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type ViewModel:FindItemsViewModel}">
+            <Views:FindItemView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:UserViewModel}">
+            <Views:UserView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:HomeViewModel}">
+            <Views:HomeView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:MainViewModel}">
+            <Views:MainView/>
+        </DataTemplate>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="405"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Containerviews:MenuToolbarContainerView Grid.Row="1"/>
         <Containerviews:TabMenuContainerView Grid.Row="2"/>
-        <Views:FindItemView Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" Height="405" Width="850"/>
-        
-
+        <ContentControl Content="{Binding SelectedViewModel}" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Grid.Row="3" Height="405" Width="850"/>
     </Grid>
 </Window>

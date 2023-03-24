@@ -13,6 +13,7 @@
         private string city;
         private string county;
         private string postalCode;
+        private string userApiCode;
 
         public string FirstName
         {
@@ -68,6 +69,11 @@
         {
             get { return postalCode; }
             set { postalCode = value; }
+        }
+        public string UserApiCode
+        {
+            get { return userApiCode; }
+            set { userApiCode = value; }
         }
     }
 }

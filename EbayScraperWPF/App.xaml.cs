@@ -1,4 +1,5 @@
-﻿using EbayScraperWPF.Views;
+﻿using EbayScraperWPF.ViewModel;
+using EbayScraperWPF.Views;
 using System;
 using System.Collections.Generic;
 using System.Configuration;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EbayScraperWPF.ViewModel
 {
-    public class CheckoutViewModel : ViewModelBase
+    public class FindSoldItemsViewModel : ViewModelBase
     {
     }
 }
