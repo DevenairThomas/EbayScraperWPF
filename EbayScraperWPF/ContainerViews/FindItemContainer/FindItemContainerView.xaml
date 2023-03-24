@@ -43,9 +43,7 @@
                     <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" x:Name="txtKeywords" Text="{Binding ItemKeywords, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </Grid>
             </GroupBox>
-            <Button Margin="10,332,400,113" Grid.Row="2" Click="Button_Click">
-                <Views:MainView/>
-            </Button>
+            <Button Margin="10,332,400,113" Grid.Row="2" Click="Button_Click"/>
             <GroupBox Grid.Row="1" Header="Optional">
                 <Grid Height="203">
                     <Grid.RowDefinitions>

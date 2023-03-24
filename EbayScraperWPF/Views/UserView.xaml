@@ -4,11 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EbayScraperWPF"
-        mc:Ignorable="d" Height="270" Width="440">
+        xmlns:ViewModel ="clr-namespace:EbayScraperWPF.ViewModel"
+        xmlns:ContainerViews="clr-namespace:EbayScraperWPF.ContainerViews"
+        mc:Ignorable="d" Height="410" Width="780">
+    <UserControl.DataContext>
+        <ViewModel:UserViewModel/>
+    </UserControl.DataContext>
     <Grid>
-        <Grid.RowDefinitions >
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="50"/>
         </Grid.ColumnDefinitions>
+        <Button Grid.Column="5" VerticalAlignment="Top" Height="25" Width="50" x:Name="btnSaveUser" Content="Save" Command="{Binding SaveUserCommand}" Margin="0,375,0,0"/>
+        <ContainerViews:UserDataContainerView DataContext="{Binding _UserDataContainerViewModel}"  Grid.Column="3" Height="400" Width="430" Margin="10,5,10,5"/>
+        <ListView Height="400" Grid.Column="0" Width="250" Margin="0,0,10,0" Grid.ColumnSpan="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Item Name" x:Name="Firstname" Width="180">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ItemName}" TextWrapping="Wrap"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>
