@@ -25,6 +25,9 @@
         <DataTemplate DataType="{x:Type ViewModel:MainViewModel}">
             <Views:MainView/>
         </DataTemplate>
+        <DataTemplate DataType="{x:Type ViewModel:ItemAnalyticsViewModel}">
+            <Views:ItemAnalyticsView/>
+        </DataTemplate>
     </Window.Resources>
 
     <Grid>
