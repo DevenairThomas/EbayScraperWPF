@@ -1,7 +1,10 @@
-﻿namespace EbayScraperWPF
+﻿using System.IO.Packaging;
+
+namespace EbayScraperWPF
 {
     public class UserData
     {
+        private string password;
         private string firstName;
         private string lastName;
         private string email;
@@ -74,6 +77,11 @@
         {
             get { return userApiCode; }
             set { userApiCode = value; }
+        }
+        public string Password
+        {
+            get { return password; }
+            set { password = value; }
         }
     }
 }
