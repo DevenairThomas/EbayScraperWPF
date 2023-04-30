@@ -1,10 +1,8 @@
-﻿using Microsoft.VisualBasic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EbayScraperWPF.CommandEvents;
+using Microsoft.VisualBasic;
+using Npgsql;
 using System.Windows;
+using System.Windows.Input;
 
 namespace EbayScraperWPF.ViewModel
 {
@@ -15,25 +13,26 @@ namespace EbayScraperWPF.ViewModel
 
         private string _UserEmail;
         private string _UserPassword;
+        private string _ConnectionString;
+        private bool _LoginSuccess;
 
         public enum PasswordStates
         {
             None,
-            EMAIL_CHECK_SUCCESS,
-            PASSWORD_CHECK_SUCCESS,
             USER_CHECK_SUCCESS,
-            EMAIL_CHECK_FAIL,
-            USER_CHECK_FAIL,
-            PASSWORD_CHECK_FAIL
+            USER_CHECK_FAIL
         }
-        
+
         public HomeViewModel()
         {
-           _UserData = new UserData();
+            _UserData = new UserData();
+            UserLogonAttempt = new RelayCommand(() => LOGIN());
         }
-        public UserData UserData 
-        { 
-            get { return _UserData; } 
+        public ICommand UserLogonAttempt { get; set;}
+        public UserData UserData
+        {
+            get { return _UserData; }
+            set { _UserData = value; }
         }
         public string UserEmail
         {
@@ -53,12 +52,81 @@ namespace EbayScraperWPF.ViewModel
                 OnPropertyChanged();
             }
         }
+        public bool LoginSuccess
+        {
+            get { return _LoginSuccess; }
+            set { _LoginSuccess = value; }
+        }
+        private void LOGIN()
+        {
+            string ConnectionString = _ConnectionString;
+            string EnteredUserEmail = UserEmail;
+            string EnteredUserPassword = UserPassword;
+            bool EMAIL_CHECK = false;
+            bool PASSWORD_CHECK = false;
+            string? dUserEmail = "";
+            string? dPassword = "";
+            PasswordStates LOGIN_STATES = PasswordStates.None;
+            //@"Server=localhost;Port=5432;User Id=postgres;Password=123;Database=RecipeProj;");
+            NpgsqlConnection conn = new NpgsqlConnection(ConnectionString);
+            conn.Open();
 
-        public PasswordStates CheckLogin(string enteredUserName,string storedUserName, string enteredUserPassword, string storedUserPassword)
+            string sql = "SELECT * FROM users";
+            NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
+            NpgsqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                dUserEmail = dr[0].ToString();
+                if (dUserEmail == null) { EMAIL_CHECK = false; }
+                else if (dUserEmail == EnteredUserEmail)
+                {
+                    EMAIL_CHECK = true;
+                    dPassword = dr[1].ToString();
+                    break;
+                }
+            }
+            conn.Close();
+            if(EMAIL_CHECK == true) 
+            { 
+                LOGIN_STATES = CheckLogin(EnteredUserEmail, dUserEmail, EnteredUserPassword, dPassword);
+                PASSWORD_CHECK = true;
+            }
+            switch (LOGIN_STATES)
+            {
+                case PasswordStates.None:
+                    {
+                        UserEmail = "";
+                        UserPassword = "";
+                        UserData = new UserData();
+                        break;
+                    }
+                case PasswordStates.USER_CHECK_SUCCESS:
+                    {
+                        //TODO retrieve information from USER_TABLE
+                        //POPULATE USER data into application
+                        //Initiate Database Retrieval
+                        break;
+                    }
+                case PasswordStates.USER_CHECK_FAIL:
+                    {
+                        UserEmail = "";
+                        UserPassword = "";
+                        UserData = new UserData();
+                        break;
+                    }
+               default:
+                    break;
+            }
+            if(EMAIL_CHECK == true && PASSWORD_CHECK == true) { LoginSuccess = true; }
+            else { LoginSuccess = false; }
+            return;
+        }
+
+        public PasswordStates CheckLogin(string enteredUserName, string storedUserName, string enteredUserPassword, string storedUserPassword)
         {
             PasswordStates passwordStates = PasswordStates.None;
             //No User password entered
-            if (string.IsNullOrEmpty(enteredUserPassword)) 
+            if (string.IsNullOrEmpty(enteredUserPassword))
             {
                 MessageBox.Show("message", nameof(enteredUserPassword));
                 passwordStates = PasswordStates.USER_CHECK_FAIL;
@@ -74,22 +142,18 @@ namespace EbayScraperWPF.ViewModel
             //User Name Entered Success
             else if (enteredUserName == storedUserName)
             {
-                //User Password Entered Success
-                passwordStates = PasswordStates.EMAIL_CHECK_SUCCESS;
-                if(enteredUserPassword == storedUserPassword)
+                if (enteredUserPassword == storedUserPassword)
                 {
-                    passwordStates = PasswordStates.PASSWORD_CHECK_SUCCESS;
+                    passwordStates = PasswordStates.USER_CHECK_FAIL;
                     return passwordStates;
                 }
-                return PasswordStates.PASSWORD_CHECK_FAIL;
+                return PasswordStates.USER_CHECK_FAIL;
             }
             else
             {
-                MessageBox.Show("message", nameof(enteredUserPassword));
-                passwordStates = PasswordStates.EMAIL_CHECK_FAIL;
+                passwordStates = PasswordStates.USER_CHECK_FAIL;
             }
             return passwordStates;
         }
-        
     }
 }
